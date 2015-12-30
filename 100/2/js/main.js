@@ -90,7 +90,6 @@ var renderCvs = function (imgId,w,h) {
   img.src = imgId;
 }
 
-
 var loadImg = function (id, callback) {
   $('#container').css({height:zWin.height(),'overflow':'hidden'});
   $("#large_container").css({width:zWin.width(),height:zWin.height()}).show();
@@ -130,6 +129,7 @@ $("#container").delegate('li', 'tap', function() {
 largeContainer.tap(function(){
   $('#container').css({height:'auto','overflow':'auto'})
   largeContainer.hide();
+  wImage.attr('src','');
 });
 
 largeContainer.mousedown(function(e){
