@@ -1,7 +1,7 @@
 // 相册优化
 // 1、使用canvas代替image标签
 //
-var total = 17;
+var total = 11;
 var zWin = $(window);
 
 var resetContainer = function () {
@@ -42,9 +42,13 @@ $(window).resize(function () {
 });
 
 var cid;
-var wImage = $('#large_img');
+var wImage = $('#large_img'),largeContainer = $('#large_container');
 var domImage = wImage[0];
-
+var SWIPE_DISTANCE = 30;
+var SWIPE_TIME = 500;
+var point_start,point_end,time_start,time_end;
+var startEvt, moveEvt, endEvt;
+var lock = false;
 var loadImg = function (id, callback) {
   $('#container').css({height:zWin.height(),'overflow':'hidden'});
   $("#large_container").css({width:zWin.width(),height:zWin.height()}).show();
@@ -71,20 +75,23 @@ var loadImg = function (id, callback) {
   }
 
 }
+
 $("#container").delegate('li', 'tap', function() {
   var _id = cid = $(this).attr('data-id');
   loadImg(_id);
 });
 
-$('#large_container').tap(function(){
+
+largeContainer.tap(function(){
   $('#container').css({height:'auto','overflow':'auto'})
-  $('#large_container').hide();
+  largeContainer.hide();
 });
-$('#large_container').mousedown(function(e){
+
+largeContainer.mousedown(function(e){
     e.preventDefault();
 });
-var lock = false;
-$('#large_container').swipeLeft(function () {
+
+var swipeLeft = function () {
   if(lock){
     return;
   }
@@ -102,9 +109,8 @@ $('#large_container').swipeLeft(function () {
       wImage.addClass('animated bounceInRight');
     });
   }
-});
-
-$('#large_container').swipeRight(function () {
+}
+var swipeRight = function () {
   if(lock){
     return;
   }
@@ -122,4 +128,92 @@ $('#large_container').swipeRight(function () {
       wImage.addClass('animated bounceInLeft');
     });
   }
-})
+}
+
+if("ontouchstart" in window){
+  startEvt = "touchstart";
+  moveEvt = "touchmove";
+  endEvt = "touchend";
+} else{
+  startEvt = "mousedown";
+  moveEvt = "mousemove";
+  endEvt = "mouseup";
+}
+var getTouchPos = function (e) {
+  var touches =  e.touches;
+  if(touches &&  touches[0]){
+    return {x : e.touches[0].clientX, y : e.touches[0].clientY };
+  }
+  return {x : e.clientX, y : e.clientY };
+};
+var getDist = function (p1, p2) {
+  if(!p1 || !p2) return 0;
+  return Math.sqrt((p1.x - p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y));
+};
+var getAngle = function (p1,p2) {
+  var r = Math.atan2(p2.y-p1.y, p2.x - p1.x);
+  var a = r * 180 / Math.PI;
+  return a;
+};
+
+var getSwipeDirection = function (p2,p1) {
+  var dx = p2.x - p1.x;
+  var dy = -p2.y + p1.y;
+  var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+  if(angle < 45 && angle > -45) return 'right';
+  if(angle >= 45 && angle < 135) return 'top';
+  if(angle >= 135 || angle < -135) return 'left';
+  if(angle >= -135 && angle <= -45) return 'bottom';
+};
+
+// 记录touchstart开始时间和位置
+var startEvtHandler = function (e) {
+  var touches =  e.touches;
+  if(!touches ||  touches.length == 1){
+    point_start = getTouchPos(e);
+    time_start = Date.now();
+  }
+};
+
+var moveEvtHandler = function (e) {
+  point_end = getTouchPos(e);
+  e.preventDefault();
+};
+
+var endEvtHandler = function  (e) {
+  var time_end = Date.now();
+  if(getDist(point_start,point_end) > SWIPE_DISTANCE &&
+    time_start - time_end < SWIPE_TIME ) {
+    var dir = getSwipeDirection(point_end, point_start);
+    switch(dir){
+      case 'right' :
+        swipeRight();
+        break;
+      case 'left' :
+        swipeLeft();
+        break;
+      case 'top' :
+        swipeLeft();
+        break;
+      case 'bottom' :
+        swipeRight();
+        break;
+    }
+  }
+};
+largeDom = largeContainer[0];
+largeDom.addEventListener('touchstart', startEvtHandler);
+largeDom.addEventListener('touchmove', moveEvtHandler);
+largeDom.addEventListener('touchend', endEvtHandler);
+
+
+
+
+// largeContainer.swipeLeft(function () {
+//   swipeLeft();
+// });
+
+// largeContainer.swipeRight(function () {
+//   swipeRight();
+// });
+
