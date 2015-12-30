@@ -1,15 +1,24 @@
 // 相册优化
 // 1、使用canvas代替image标签
-//
+(function () {
+  var get = function (key) {
+    return window.localStorage ? localStorage.getItem(key) : false;
+  };
+  var set = function (key, value) {
+    return window.localStorage ? localStorage.setItem(key, value) : false;
+  };
+  window.SET = set;
+  window.GET = get;
+})();
+
 var total = 11;
 var zWin = $(window);
-
 var resetContainer = function () {
   $('#container').css({height:'auto','overflow':'auto'})
   $('#large_container').hide();
 }
 var render = function () {
-  var tmp = '',padding = 2,maxW = 800;
+  var tmp = '',padding = 2,maxW = 700;
   var winWidth = zWin.width();
   if(winWidth >= maxW) winWidth = maxW;
   var picWidth = Math.floor((winWidth - padding * 3) / 4);
@@ -27,7 +36,7 @@ var render = function () {
       var cvs = $("#cvs_"+this.index)[0].getContext('2d');
       cvs.width = this.width;
       cvs.height = this.height;
-      cvs.drawImage(this,0,0);
+      cvs.drawImage(this,0,0,this.width,this.height);
     }
     imageObj.src = imgsrc;
   };
@@ -41,14 +50,47 @@ $(window).resize(function () {
   render();
 });
 
-var cid;
+
+var cid,lock = false;
 var wImage = $('#large_img'),largeContainer = $('#large_container');
 var domImage = wImage[0];
-var SWIPE_DISTANCE = 30;
-var SWIPE_TIME = 500;
+var SWIPE_DISTANCE = 30, SWIPE_TIME = 500;
 var point_start,point_end,time_start,time_end;
 var startEvt, moveEvt, endEvt;
-var lock = false;
+
+var renderCvs = function (imgId,w,h) {
+  var imageCache = GET(imgId);
+  if (imageCache) {
+      wImage.attr('src',imageCache);
+      return;
+  }
+  var img = new Image();
+  img.id = imgId;
+  img.crossorigin = "anonymous";
+  img.onload = function (){
+    var _this = this;
+    domImage.src = imgId;
+    try {
+      var cvs = document.createElement('canvas');
+      cvs.style.display = 'none';
+      document.body.appendChild(cvs);
+      var rcvs = cvs.getContext('2d');
+      cvs.width = w;
+      cvs.height = h;
+      rcvs.drawImage(this, 0, 0, w, h);
+      setTimeout(function () {
+          var data = cvs.toDataURL();
+          SET(_this.id, data);
+          document.body.removeChild(cvs);
+      }, 200);
+    } catch (ex) {
+
+    }
+  }
+  img.src = imgId;
+}
+
+
 var loadImg = function (id, callback) {
   $('#container').css({height:zWin.height(),'overflow':'hidden'});
   $("#large_container").css({width:zWin.width(),height:zWin.height()}).show();
@@ -67,10 +109,13 @@ var loadImg = function (id, callback) {
     wImage.css('width','auto').css('height','auto');
     wImage.css('padding-left','0px').css('padding-top','0px');
     if(h/w > 1.2){
-      wImage.attr('src',imgsrc).css('height',winHeight).css('padding-left',paddingLeft);
+      wImage.attr('data-src',imgsrc).css('height',winHeight).css('padding-left',paddingLeft);
+      renderCvs(imgsrc,realW,winHeight);
     } else{
-      wImage.attr('src',imgsrc).css('width',winWidth).css('padding-top',paddingTop);
+      wImage.attr('data-src',imgsrc).css('width',winWidth).css('padding-top',paddingTop);
+      renderCvs(imgsrc,winWidth,realH);
     }
+
     callback && callback();
   }
 
