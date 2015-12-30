@@ -144,6 +144,7 @@ var swipeLeft = function () {
   cid++;
   if(cid > total){
     cid = total;
+    lock = false;
   }else{
     loadImg(cid, function () {
       domImage.addEventListener('webkitAnimationEnd',function() {
@@ -163,6 +164,7 @@ var swipeRight = function () {
   cid--;
   if(cid < 1){
     cid = 1;
+    lock = false;
   }else{
     loadImg(cid, function () {
       domImage.addEventListener('webkitAnimationEnd',function() {
