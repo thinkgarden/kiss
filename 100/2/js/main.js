@@ -1,5 +1,8 @@
 // 相册优化
 // 1、使用canvas代替image标签
+// 2、使用renderCvs将图片缓存在localstore中,解决图片左滑右滑中加载图片耗时的问题；
+// 3、存在的问题,未对click事件进行区分；
+//
 (function () {
   var get = function (key) {
     return window.localStorage ? localStorage.getItem(key) : false;
