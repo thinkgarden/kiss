@@ -1,10 +1,70 @@
-body{
-  padding: 30px;
-  background-color: #1F1E34;
-  color: #FFF;
-  font-family: "Avenir Next",
-      "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,
-      Arial, "Lucida Grande", sans-serif;
-  font-weight: 100;
+* {
+    box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  opacity: .8;
+  line-height: 1.8;
+}
+h1 {
+  text-align: center;
+  font-weight: normal;
 }
 
+a {
+  transition: all 0.5s ease;
+  text-decoration: none;
+  color: deeppink;
+}
+a:hover {
+  color: hotpink;
+}
+ul, li{
+  padding: 0;
+  list-style: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.container{
+  width: 100%;
+  padding: 1.5em;
+}
+
+@media(min-width: 970px){
+  .container{
+    width: 960px;
+    margin:0 auto;
+  }
+}
+
+.container img {
+  max-width: 100%;
+}
+.post-nav {
+  background-color: #00bcd4;
+  margin-bottom: 2.5em;
+}
+a.post {
+  display: block;
+  line-height: 2.3;
+  text-align: center;
+}
+footer {
+  background-color: #000;
+  min-height: 7em;
+  margin-top: 3em;
+}
