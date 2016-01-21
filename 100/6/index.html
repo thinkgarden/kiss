@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>仿好多视频</title>
+    <link href="http://cdn.bootcss.com/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <div class="post-nav clearfix">
+            <ul class="container clearfix">
+                <li><a href="/" class="nav">网站首页</a></li>
+                <li><a href="/p/index" class="nav">课程首页</a></li>
+                <li><a href="/p/stage3" class="nav">S3</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+      <video id="peter-talk" controls preload="auto">
+       <source src="http://7xn2cy.com1.z0.glb.clouddn.com/stage1.mp4" type='video/mp4' />
+      </video>
+    </div>
+    <!-- <div class="container">
+        <img width="100%" src="http://7xnx53.com1.z0.glb.clouddn.com/hello-meteor.png">
+    </div> -->
+    <div class="container">
+        <h1 id="-meteor-react">当 Meteor 遇见 React</h1>
+        <p>Meteor 是目前 Nodejs 社区最为流行的全栈框架。Meteor 官方支持三种前端框架来写 UI，分别是 Blaze ，React 和 Angular 。本节来把 Meteor 安装上，然后看看 React 如何与 Meteor 协同工作。</p>
+        <h3 id="-">视频列表</h3>
+        <p>第一个小任务：用 Github 托管网站，进入课程的论坛。</p>
+        <p>
+          <a href="github-user-site.html" class="video">搭建 Github 个人网站</a>
+          <a href="github-project-site.html" class="video">搭建 Github 项目网站</a>
+          <a href="github-forum.html" class="video">论坛沟通</a>
+        </p>
+        <h3 id="-meteor">安装 meteor</h3>
+        <p>安装参考 <a href="https://www.meteor.com/install">这里</a> ，说到底就是下面一条命令：</p>
+        <pre><code>curl https://install.meteor.com/ | sh </code></pre>
+        <p>这样 meteor 就装好了。</p>
+        <h3 id="-">创建一个新项目</h3>
+        <p>来新建一个项目</p>
+        <pre><code>meteor create s3-meteor </code></pre>
+        <p>这样一个简单的 meteor 项目就有了，来启动一下</p>
+        <pre><code>cd s3-meteor meteor </code></pre>
+        <p>这样，就可以浏览器中访问 <a href="http://localhost:3000/">http://localhost:3000/</a> 看到运行效果。自动生成的代码，我做了一个 commit</p>
+        <p><a href="https://github.com/happypeter/s3-meteor/commit/82d867f78e4e493c72d1ca5ecf1fc104759ee603">meteor create s3-meteor</a></p>
+        <h3 id="-">本节后续所有代码</h3>
+        <p><a href="https://github.com/happypeter/s3-meteor/commit/57a4b25c8b83f73c05a7c063426d28fa5e17cf78">meteor react</a></p>
+        <h3 id="-blaze-react">不用 blaze  用 react</h3>
+        <p>默认 meteor 项目的 UI 库是 <a href="https://www.meteor.com/blaze">Blaze</a> ，所以生成的这几个文件中的语法也是 Blaze 的语法，咱们就不详细介绍了。因为咱们要用一个更为强大的，也就是 react 。</p>
+        <p>既然这样，那么项目中可以看到的这三个文件就可以删除了</p>
+        <pre><code>rm -rf * </code></pre>
+        <p>但是项目现在可不是空的，里面有一个重要的隐藏文件夹 .meteor</p>
+        <pre><code>ls  .meteor local/     packages  platforms release   versions </code></pre>
+        <p>其中 <code>local/</code> 文件夹是很大的，因为里面装了很多包，但是做版本控制的时候也不用担心，因为和它同级的位置有一个 <code>.gitignore</code> 里面已经注明了忽略这个文件夹。其他的几个文件是需要跟源码一起进行版本控制的，里面分别存放了包的版本信息。</p>
+        <h3 id="-meteor-">用 meteor 装包</h3>
+        <p>meteor 作为一个快速开发框架，当然需要有自己的一个很大的包仓库了，比如我们运行</p>
+        <pre><code>meteor add react </code></pre>
+        <p>注意：个别时候需要翻墙才能安装成功。</p>
+        <p>就可以把 <a href="https://atmospherejs.com/meteor/react">meteor 官方提供的 react</a> 这个包（注意跟 <a href="https://www.npmjs.com/package/react">npm 中提供的 react 包</a>要区分开）安装上。那么安装位置就是前面提到的 <code>.meteor/local</code> 里面，并且包自身的版本信息也在 <code>.meteor/versions</code> 文件中记录了。</p>
+        <p>命令执行完毕，命令行输出中看到安装了下面这几个包</p>
+        <pre><code>coffeescript        added, version 1.0.11
+cosmos:browserify   added, version 0.9.3
+jsx                 added, version 0.2.3
+react               added, version 0.14.3
+react-meteor-data   added, version 0.2.4
+react-runtime       added, version 0.14.4
+react-runtime-dev   added, version 0.14.4
+react-runtime-prod  added, version 0.14.4
+</code></pre>
+        <p>其中最主要的是来自 facebook 的 react 包，还有 meteor 团队添加的 react-meteor-data 这个包，用来沟通 meteor 和 react 之间的数据的。其他的包咱们用到的时候再提。</p>
+        <h3 id="-react-hello-world">跑一个 react 的 Hello World</h3>
+        <p>首先到项目中新建一个 client/ 文件夹</p>
+        <pre><code>mkdir client
+</code></pre>
+        <p>注：根据 Meteor 的规范，凡是要在浏览器中执行的代码一律放在 client 文件夹下。官方文档在 <a href="http://docs.meteor.com/#/full/structuringyourapp">这里</a> 。</p>
+        <p>在里面添加一个 react 的组件来显示 Hello World ，具体代码如下</p>
+        <p>需要一个启动文件 startup.jsx</p>
+        <pre><code>Meteor.startup(function () {
+  ReactDOM.render(&lt;Hello /&gt;, document.getElementById(&quot;container&quot;));
+});
+</code></pre>
+        <p>组件文件 Hello.jsx</p>
+        <pre><code>Hello = React.createClass({
+  render(){
+    return (
+      &lt;div&gt;Hello World!&lt;/div&gt;
+    );
+  }
+});
+</code></pre>
+        <p>最后一个是 index.html （不必担心 html5 的 doctype 声明等内容，meteor 会帮我们自动添加的）</p>
+        <pre><code>&lt;head&gt;
+  &lt;title&gt;Peter&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&#39;container&#39;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+        <p>注意： react 代码的文件后缀一定要是 jsx ，这样 meteor 系统才能够正确识别出这是 react 的文件，从而进行编译。参考<a href="http://react-in-meteor.readthedocs.org/en/latest/jsx/">这里</a> 。</p>
+        <h3 id="end">End</h3>
+        <p>后台保持 <code>meteor</code> 命令一直运行，这样在 <a href="http://localhost:3000/">http://localhost:3000/</a> 就可以看到组件的显示效果了。另外，meteor 还自带了自动页面刷新功能，一旦 client/ 中的代码有变动，页面就会自动刷新，非常方便开发。</p>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
