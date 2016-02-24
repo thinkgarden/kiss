@@ -1,0 +1,183 @@
+body {
+  width: 100%;
+  *zoom: 1;
+  display: block;
+}
+body:before, body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6.66667px 10px;
+  line-height: 1.2;
+  font-weight: normal;
+  background-color: #BDBDBD;
+  border: 0;
+  border-radius: 6px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.btn:hover, a .btn:hover, .btn.active {
+  background-color: #a4a4a4;
+  border-color: #a4a4a4;
+  text-decoration: none;
+}
+
+.btn-primary {
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #9E9E9E;
+  border-color: #9E9E9E;
+  color: #fff;
+}
+
+.btn-secondary:hover, a .btn-secondary:hover, .btn-secondary.active {
+  background-color: #787878;
+  border-color: #787878;
+}
+
+.btn:active, .btn.active {
+  outline: 0;
+}
+
+.btn.disabled, .btn[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  box-shadow: none;
+}
+
+.btn.full {
+  width: 100%;
+}
+
+.btn-skinny {
+  padding: 0.5em 1em;
+  font-size: 0.75em;
+  line-height: normal;
+}
+.btn-skinny.full {
+  width: 100%;
+}
+
+.btn-large {
+  padding: 0.75em 2em;
+  font-size: 1em;
+  line-height: normal;
+}
+.btn-large.full {
+  width: 100%;
+}
+
+.btn-block, input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+  display: block;
+  width: 100%;
+  margin-right: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+button, .btn {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  -webkit-appearance: none;
+}
+
+.btn:last-child,
+input.btn {
+  margin-right: 0;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+/* --- General Pen Styles --- */
+body {
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: 'Bitter', serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Dosis', sans-serif;
+}
+
+.contained {
+  margin: 0 auto;
+  width: 90%;
+}
+@media (min-width: 500px) {
+  .contained {
+    width: 80%;
+  }
+}
+@media (min-width: 600px) {
+  .contained {
+    width: 60%;
+  }
+}
+
+main {
+  padding: 3em 0 5em;
+  position: relative;
+  background: #f5f5f5;
+  color: #444444;
+  box-shadow: 0px -10px 60px rgba(0, 0, 0, 0.25);
+}
+
+header {
+  background-image: url(https://unsplash.it/1200/800?image=876);
+  overflow: hidden;
+  padding-bottom: 80vh;
+}
+
+header {
+  position: relative;
+}
+
+header .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  width: 60%;
+}
+@media (min-width: 700px) {
+  header .text {
+    width: 40%;
+  }
+}
+header .text h1 {
+  color: #f5f5f5;
+  font-size: 40px;
+  line-height: 1.25;
+  letter-spacing: 3px;
+  -webkit-transition: font-size 300ms linear;
+  transition: font-size 300ms linear;
+}
+@media (min-width: 500px) {
+  header .text h1 {
+    font-size: 50px;
+  }
+}
+@media (min-width: 750px) {
+  header .text h1 {
+    font-size: 65px;
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <ul id="background" style="background-image: url(img/bg.jpg);"><li class="fadein" style="background-image: url(img/bg.jpg);"></li></ul>
+  <div class="widgets">
+    <div id="top-left">
+      <div class="quicklinks top-widget">
+        <a class="toggle" href="">Links</a>
+      </div>
+      <div id="search" class="search top-widget">
+        <form class="form">
+          <span class="search-underline"></span>
+          <i class="fa fa-search"></i>
+          <input type="text" class="search-input" autocomplete="off">
+        </form>
+      </div>
+    </div>
+    <div id="top-right">
+      <div id="weather" class="metric weather">
+        <div class="metric-stat">
+          <span class="icon" data-icon="C" title="Fair"></span>3°<span class="unit hide">c</span>
+        </div>
+        <span class="location metric-label data">location&lt;br&gt;unknown</span>
+        <span class="metric-message">not found</span></div>
+    </div>
+    <div id="center-above"></div>
+    <div id="center">
+      <div id="centerclock"><h1 class="time">4:21</h1><span class="format">AM</span></div>
+      <div id="greeting">
+        <h2>Good <span class="period">afternoon</span>, <span class="name">Slowfish</span> .</h2>
+      </div>
+    </div>
+    <div id="center-below">
+      <div id="focuses">
+        <div class="prompt">
+          <h3>What is your main focus for today?</h3>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <blockquote id="shortquote">
+        <p class="light body">“Your world is a living expression of how you are using—and have used—your mind.”</p>
+      </blockquote>
+    </div>
+    <div id="bottom-left">
+      <div id="preferences"><i class="fa fa-cog toggle"></i></div>
+      <div id="background-info" class="background-info light" style="opacity: 1;">
+       <span class="background-info-title">New York City, USA</span>
+      </div>
+    </div>
+    <div id="bottom-right">
+      <div class="todo">
+        <span class="toggle todo-toggle medium">Todo</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

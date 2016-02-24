@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="300px" height="630px" viewBox="0 0 300 630" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>iphone-holder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="252.456631" height="448.273272"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="iphone-holder" sketch:type="MSArtboardGroup">
+            <g id="iPhone-5s" sketch:type="MSLayerGroup">
+                <rect id="Outer-Stroke" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="2.36678091" y="2.36764052" width="296.636541" height="626.635524" rx="43.3909834"></rect>
+                <rect id="Hold-Switch" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="0" y="89.9703397" width="3.15570789" height="26.0440457" rx="2.36678091"></rect>
+                <rect id="Volume-Up" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="0" y="148.372139" width="3.15570789" height="21.3087647" rx="2.36678091"></rect>
+                <rect id="Volume-Down" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="0" y="200.460231" width="3.15570789" height="21.3087647" rx="2.36678091"></rect>
+                <ellipse id="Front-Camera" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" cx="150.290588" cy="33.1469673" rx="5.5224888" ry="5.52449454"></ellipse>
+                <rect id="Speaker" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="123.467071" y="50.5096644" width="54.435961" height="12.6274161" rx="8.67819669"></rect>
+                <ellipse id="Home-Button" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" cx="150.685052" cy="583.623388" rx="26.823517" ry="26.8332592"></ellipse>
+                <rect id="Power-Button" stroke="#FFFFFF" stroke-width="0.5" sketch:type="MSShapeGroup" x="201.965305" y="0" width="48.1245453" height="3.15685403" rx="2.36678091"></rect>
+                <g id="Screen" transform="translate(24.456736, 91.548767)">
+                    <mask id="mask-2" sketch:name="Your Screen Here" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Your-Screen-Here" fill="#FFFFFF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

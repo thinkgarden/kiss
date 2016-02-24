@@ -1,0 +1,63 @@
+body,html {
+  width: 100%;
+  height: 100%;
+}
+body, div, span{
+  box-sizing:border-box;
+  position: relative;
+  display: flex;
+  flex-direction:column;
+  flex-shrink:0;
+  align-items:stretch;
+  align-content: flex-start;
+  border: 0 solid black;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #1F1E34;
+  color:#FFF;
+  font-family: "Avenir Next",
+      "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,
+      Arial, "Lucida Grande", sans-serif;
+  font-weight: 100;
+}
+
+h1{
+  font-size:64px;
+  font-weight: 100;
+}
+
+a{
+  font-weight: 400;
+  color:#FFF;
+}
+
+a:hover{
+  text-decoration: none;
+   color: #DADADA;
+}
+
+.section{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.row{
+  flex-direction:row;
+}
+
+.col{
+  flex-direction:column;
+}
+
+.nav{
+  justify-content:center;
+}
+
+.nav a{
+  padding: 16px;
+}
