@@ -38,6 +38,7 @@ a.hamburger{
   border-radius: 50%;
   line-height: 60px;
   text-align: center;
+  -webkit-transition:background-color .5s;
   transition:background-color .5s;
   cursor: pointer;
 }
@@ -56,11 +57,16 @@ a.hamburger i {
   top: 0;
   bottom: 0;
   z-index: 100;
-  transform: translateX(-250px);
-  transition: transform .5s;
+  -webkit-transform: translateX(-250px);
+      -ms-transform: translateX(-250px);
+          transform: translateX(-250px);
+  -webkit-transition: -webkit-transform .5s;
+          transition: transform .5s;
 }
 .sidebar.show {
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .sidebar ul {
@@ -118,10 +124,10 @@ a.hamburger i {
 .toc li a{
   display: block;
   box-shadow: 0 2px 5px rgba(0,0,0,0.16),0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  transition:all 1s ease;
+  -webkit-transition:all 1s ease;
+          transition:all 1s ease;
   color:#212121;
 }
-
 .toc li a:hover {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 20px 0 rgba(0, 0, 0, 0.12);
 }
