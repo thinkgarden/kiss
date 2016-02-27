@@ -182,13 +182,16 @@
   <script src="./js/jquery-1.9.1.min.js" type="text/javascript"></script>
   <script>
     $('.hamburger').click(function(){
+      $('body').css('overflow', 'hidden');
       $('.sidebar').addClass('show');
       $('.ui-mask').addClass('show');
     })
 
     $('.ui-mask').click(function(){
+      $('body').css('overflow', 'auto');
       $('.sidebar').removeClass('show');
       $(this).removeClass('show');
+
     })
   </script>
 </body>
