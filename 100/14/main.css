@@ -20,7 +20,7 @@ body {
   max-width: 525px;
   min-height: 680px;
   background-image: url(login-background.jpg);
-  padding:5rem 4rem 0 4rem;
+  padding:4rem 2rem 0 2rem;
   box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
 }
 .login-container:after {
@@ -39,7 +39,7 @@ body {
 @media(min-width: 526px){
   .login-container{
     margin-top: 4rem;
-    padding:4rem 2rem 0 2rem;
+    padding:5rem 4rem 0 4rem;
   }
 
 }
