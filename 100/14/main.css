@@ -39,7 +39,9 @@ body {
 @media(min-width: 526px){
   .login-container{
     margin-top: 4rem;
+    padding:4rem 2rem 0 2rem;
   }
+
 }
 
 .form-login {
