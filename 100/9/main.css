@@ -1,14 +1,36 @@
 /*Montserrat font*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 /*basic reset*/
-* {margin: 0; padding: 0;}
-body {text-align: center; overflow: hidden;}
+*{
+  box-sizing:border-box;
+}
+body {margin: 0;text-align: center; overflow: hidden;}
+.container{
+  padding: 1em;
+}
+@media(min-width: 768px){
+  .container{
+    width: 600px;
+    margin: 0 auto;
+  }
+}
 
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
 .grid {
-  width: 600px; height: 300px; margin: 100px auto 50px auto;
+  width: 100%; margin: 100px auto 50px auto;
   perspective: 500px; /*For 3d*/
 }
-.grid img {width: 60px; height: 60px; display: block; float: left;}
+.grid img {width: 10%; display: block; float: left;}
 
 .animate {
   font: 12px Montserrat; text-transform: uppercase;

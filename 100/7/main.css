@@ -95,7 +95,7 @@ a {
     border-bottom-width: 0;
 }
 
-@media(min-width: 420px){
+@media(min-width: 768px){
   .wrapper{
     width: 320px;
     margin:50px auto;

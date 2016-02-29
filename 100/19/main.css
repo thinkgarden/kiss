@@ -68,6 +68,7 @@ i {
   bottom:0;
   left:50%;
   opacity: 1;
+  filter: alpha(opacity=100);
   -webkit-transform: translateX(-50%);
 }
 
@@ -129,7 +130,8 @@ i {
 }
 
 #background li {
-  opacity: 0
+  opacity: 0;
+  filter: alpha(opacity=0)
 }
 
 .metric, .metric-stat, .toggle {
@@ -159,6 +161,7 @@ i {
   right: 0;
   border-bottom: 2px solid #fff;
   opacity: 0;
+  filter: alpha(opacity=0);
   -webkit-transition: opacity .15s ease;
 }
 
@@ -169,6 +172,7 @@ i {
   z-index: 1;
   line-height: 59px;
   opacity: .8;
+  filter: alpha(opacity=80);
 }
 
 .search-input {
@@ -177,7 +181,6 @@ i {
   z-index: 2;
   background: 0 0;
   border: none;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #fff;
   line-height: 20px;
@@ -216,13 +219,15 @@ i {
   display: inline-block;
   font-size: 65%;
   opacity: .7;
+  filter: alpha(opacity=70);
   vertical-align: top
 }
 
 .metric-message {
   display: block;
   font-size: 60%;
-  opacity: .6
+  opacity: .6;
+  filter: alpha(opacity=60)
 }
 
 #centerclock h1,#focus,#greeting h2 {
@@ -254,6 +259,7 @@ i {
   bottom: 9%;
   font-size: 150%;
   opacity: 0;
+  filter: alpha(opacity=0);
 }
 
 #greeting .name {
@@ -265,7 +271,10 @@ i {
   border-top-right-radius: 1px;
   outline: 0;
   overflow: hidden;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   vertical-align: top
 }
 
@@ -298,6 +307,7 @@ i {
 #focuses .focus {
   height: 94px;
   opacity: 0;
+  filter: alpha(opacity=0);
   display: inline-block!important;
   overflow: visible
 }
@@ -335,7 +345,8 @@ i {
   bottom: 0;
   left: 50px;
   display: inline-block;
-  transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+          transition: all .2s ease;
   vertical-align: bottom;
 }
 
@@ -345,11 +356,13 @@ i {
   left: 0;
   z-index: 1;
   line-height: 58px;
-  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+          transition: all .3s ease;
   white-space: nowrap;
   z-index: 2;
   font-size: 15px;
   opacity: .8;
+  filter: alpha(opacity=80);
 }
 
 #todo{
@@ -360,6 +373,40 @@ i {
   padding-right: 15px;
 }
 
-.fadein {
-  -webkit-animation: fadein .5s ease 0s forwards
+@media(max-width: 768px){
+  #center{
+    top: 45%;
+  }
+  #center-below{
+    top:63.5%;
+  }
+  #bottom{
+    width: 98%;
+    bottom: 25px;
+  }
+  #centerclock h1, #focus{
+    font-size: 120px;
+  }
+  #greeting h2{
+    font-size: 25px;
+  }
+  #focuses{
+    font-size: 20px;
+    line-height: 130%;
+  }
+  .toggle{
+    padding: 10px;
+  }
+  .metric{
+    margin:10px 10px 0 0;
+  }
+  .search .fa-search{
+    line-height: 46px;
+  }
+  .background-info-title {
+    line-height: 38px;
+  }
+  #focuses .prompt input{
+    width: 90%;
+  }
 }

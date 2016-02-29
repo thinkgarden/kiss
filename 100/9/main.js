@@ -6,7 +6,17 @@ for(var i = 1; i <= count; i++)
 
 //appending the images to .grid
 $(".grid").append(images);
+$width = $(".grid img").width();
+$(".grid img").css({
+  height: $width,
+});
+$(window).on("resize", function () {
+    $width = $(".grid img").width();
+  $(".grid img").css({
+    height: $width,
+});
 
+});
 var d = 0; //delay
 var ry, tz, s; //transform params
 

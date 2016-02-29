@@ -1,5 +1,5 @@
 body{
-  padding: 30px;
+  margin: 0;
 }
 .wrapper {
   display: -webkit-box;
@@ -25,6 +25,7 @@ body{
 }
 
 .main {
+  text-align: left;
   background: deepskyblue;
 }
 
