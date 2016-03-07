@@ -12,9 +12,7 @@
  *视频中通过for循环来添加事件，自己可以通过事件代理来实现。
  *
  *5、添加动画效果
- *
- *
- *
+ *内部go()函数的递归调用（找好边界），通过setTimeout(fun,interval)实现递归
  *
  */
 
@@ -28,17 +26,18 @@ window.onload = function() {
     var animated = false;
     var interval = 3000;
     var timer;
+    var len = 5;
 
     function animate(offset) {
         if (offset == 0) {
             return;
         }
-        // 优化当图片在动画过程中，点击没有效果
-        animated = true;
         var newLeft = parseInt(list.style.left) + offset;
         var time = 300; // 位移时间
         var interval = 10; // 唯一间隔时间
         var speed = offset / (time / interval);
+        // 优化当图片在动画过程中，点击没有效果
+        animated = true;
         // 内部函数
         function go() {
             // 设置边界，什么时候做位移
@@ -49,10 +48,10 @@ window.onload = function() {
             } else {
                 list.style.left = newLeft + 'px';
                 // 无限滚动
-                if (newLeft < -3000) {
-                    list.style.left = -600 + 'px';
-                } else if (newLeft > -600) {
-                    list.style.left = -3000 + 'px';
+                if (newLeft<(-600 * len)) {
+                    list.style.left = '-600px';
+                } else if (newLeft > -200) {
+                    list.style.left = -600 * len + 'px';
                 }
                 animated = false;
             }
@@ -64,11 +63,11 @@ window.onload = function() {
         for (var i = buttons.length - 1; i >= 0; i--) {
             if (buttons[i].className.indexOf('on') != -1) {
                 // console.log(buttons[i]);
-                buttons[i].className = '';
+                buttons[i].classList.remove('on');
                 break;
             }
         };
-        buttons[index - 1].className = 'on';
+        buttons[index - 1].classList.add('on');
     }
 
     function play() {
@@ -108,25 +107,46 @@ window.onload = function() {
         animate(600);
     }
 
-    for (var i = 0; i < buttons.length; i++) {
-        // 代码优化
-        // 1、点击当前函数时不应该做任何处理
-        buttons[i].onclick = function() {
-            if (animated) {
-                return;
-            }
-            if (this.className == 'on') {
-                return;
-            }
-            var myIndex = parseInt(this.getAttribute('index'));
-            var offset = -600 * (myIndex - index);
-
-            animate(offset);
-            // 记得更新index
-            index = myIndex;
-            showButton();
+    // 获取父节点，并为它添加一个click事件
+    document.getElementById("buttons").addEventListener("click",function(e) {
+      // 检查事件源e.targe是否为Li
+      if(e.target && e.target.nodeName.toLowerCase() == "span") {
+        // 真正的处理过程在这里
+        if (animated) {
+            return;
         }
-    }
+        if (this.className == 'on') {
+            return;
+        }
+        var myIndex = parseInt(e.target.getAttribute('index'));
+        var offset = -600 * (myIndex - index);
+
+        animate(offset);
+        // 记得更新index
+        index = myIndex;
+        showButton();
+      }
+    });
+
+    // for (var i = 0; i < buttons.length; i++) {
+    //     // 代码优化
+    //     // 1、点击当前函数时不应该做任何处理
+    //     buttons[i].onclick = function() {
+    //         if (animated) {
+    //             return;
+    //         }
+    //         if (this.className == 'on') {
+    //             return;
+    //         }
+    //         var myIndex = parseInt(this.getAttribute('index'));
+    //         var offset = -600 * (myIndex - index);
+
+    //         animate(offset);
+    //         // 记得更新index
+    //         index = myIndex;
+    //         showButton();
+    //     }
+    // }
 
     container.onmouseover = stop;
     container.onmouseout = play;
