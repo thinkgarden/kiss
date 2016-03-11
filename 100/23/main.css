@@ -65,7 +65,7 @@ a{
   height: 40px;
   left: 0px;
   top: 0px;
-  opacity: 0.8;
+  opacity: 0;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   cursor: pointer;
