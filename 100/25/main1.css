@@ -19,8 +19,14 @@ ul{
 ul li{
   list-style:none;
 }
+body, html {
+  width: 100%;
+  height: 100%;
+}
 body{
   margin:0;
+  font-family: "Avenir Next", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 100;
 }
 .container,.side__left,.side__right,.main{
   border:1px solid #999;
@@ -33,6 +39,7 @@ body{
   margin: 20px;
   background-color: #eee;
   overflow: hidden;
+  min-height:100%;
 }
 
 .container .side__left{
