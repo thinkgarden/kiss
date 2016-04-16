@@ -33,10 +33,10 @@ require(['jquery','util'], function($,util) {
   $.when(util.preloadImg(list, imgs)).done(
       function() {
          a.each(function(i,item){
-            // var index = i+1;
-            // var url ="url('images/Slide"+index+".jpg')";
+            var index = i+1;
+            var url ="url('images/Slide"+index+".jpg')";
             // item.style.backgroundImage = url;
-            $(item).css({backgroundImage: "url("+imgs[i].src+")"});
+            $(item).css({backgroundImage: "url("+url+")"});
          });
 
       }
