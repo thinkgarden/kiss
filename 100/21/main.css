@@ -3,7 +3,9 @@
     padding: 0;
     text-decoration: none;
 }
-
+html,body{
+    height: 100%;
+}
 body {
     padding: 0;
 }
@@ -91,4 +93,24 @@ body {
 
 #next {
     right: 20px;
+}
+
+.slides{
+  height: 100%;
+  position: relative;
+}
+.slides ul, .slides ul li {
+    height: 100%;
+    z-index: 2;
+}
+.slides ul li:first-child {
+    opacity: 1;
+}
+.slides .banner-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    background-position: center center;
 }

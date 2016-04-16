@@ -54,10 +54,13 @@ $(window).resize(function () {
 });
 
 
-var cid,lock = false;
-var wImage = $('#large_img'),largeContainer = $('#large_container');
+var cid,
+    lock = false;
+var wImage = $('#large_img'),
+    largeContainer = $('#large_container');
 var domImage = wImage[0];
-var SWIPE_DISTANCE = 30, SWIPE_TIME = 500;
+var SWIPE_DISTANCE = 30,
+    SWIPE_TIME = 500;
 var point_start,point_end,time_start,time_end;
 var startEvt, moveEvt, endEvt;
 
@@ -97,8 +100,9 @@ var loadImg = function (id, callback) {
   $('#container').css({height:zWin.height(),'overflow':'hidden'});
   $("#large_container").css({width:zWin.width(),height:zWin.height()}).show();
   var imgsrc='images/'+id+'.large.jpg';
+  var tep = 'images/'+id+'.small.jpg'
   var imageObj = new Image();
-  imageObj.src = imgsrc;
+  imageObj.src = tmp;
   imageObj.onload = function () {
     var w = this.width;
     var h = this.height;
