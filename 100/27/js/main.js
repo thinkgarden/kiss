@@ -35,10 +35,11 @@ require(['jquery','util'], function($,util) {
          a.each(function(i,item){
             var index = i+1;
             var url ="url('images/Slide"+index+".jpg')";
-            item.style.backgroundImage = url;
+            item.style.background = url;
+            // "url('" + input.value + "')";
          });
          a.each(function(i,item){
-          alert(item.style.backgroundImage);
+          alert(item.style.background);
          });
 
       }
