@@ -37,7 +37,10 @@ require(['jquery','util'], function($,util) {
             var url ="url('images/Slide"+index+".jpg')";
             item.style.backgroundImage = url;
          });
-         alert($(documet.body).html());
+         a.each(function(i,item){
+          alert(item.style.backgroundImage);
+         });
+
       }
   );
 
