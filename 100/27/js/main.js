@@ -33,8 +33,9 @@ require(['jquery','util'], function($,util) {
   $.when(util.preloadImg(list, imgs)).done(
       function() {
          a.each(function(i,item){
-            item.style.backgroundImage="url('"+imgs[i].src+"');";
-            alert(item.style.backgroundImage);
+            var index = i+1;
+            var url ="url('images/Slide"+index+".jpg')";
+            item.style.backgroundImage = url;
          });
       }
   );
