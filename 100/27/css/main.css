@@ -23,10 +23,18 @@ body {
     opacity: 1;
 }
 .home__slides .banner-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
-    position: absolute;
-    opacity: 0;
-    width: 100%;
     background-position: center center;
+    background-attachment: fixed;
+    opacity: 0;
+}
+#afterLoad{
+    display: none;
 }

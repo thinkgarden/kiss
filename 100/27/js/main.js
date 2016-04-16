@@ -8,7 +8,9 @@ require.config({
 require(['jquery','util'], function($,util) {
   var index = 1;
   var last_index = 0;
+  var timer = null;
   var showPic = function(a) {
+    console.log(a);
       if (index >= a.length) {
           index = 0
       }
@@ -22,23 +24,37 @@ require(['jquery','util'], function($,util) {
       last_index = index;
       index++
   }
-  var a = $(".home__slides").find("li");
 
-  var c = setInterval(function() {
-      showPic(a)
-  }, 4000);
+  var start = function(a,s){
+    timer = setInterval(function() {
+        showPic(a)
+    }, s);
+  }
 
+  var reset = function(){
+    if(timer !== null){
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  var before = $("#beforeLoad").find("li");
+  reset();
+  start(before,4000);
   var list = ["images/Slide1.jpg","images/Slide2.jpg","images/Slide3.jpg","images/Slide4.jpg","images/Slide5.jpg"],    //此处省略一万个字符
   imgs = [];
   $.when(util.preloadImg(list, imgs)).done(
       function() {
-         a.each(function(i,item){
-            var index = i+1;
-            var url ="url('images/Slide"+index+".jpg')";
-            // item.style.backgroundImage = url;
-            $(item).css({backgroundImage: "url("+url+")"});
-         });
-
+        var child='';
+        $(imgs).each(function(i,item){
+          child += '<li class="banner-img" style="background-image:url(' + imgs[i].src +')"></li>';
+        });
+        $("#afterLoad ul").append(child);
+        var after = $("#afterLoad").find("li");
+        $("#beforeLoad").hide();
+        $("#afterLoad").show();
+        reset();
+        start(after,4000);
       }
   );
 
