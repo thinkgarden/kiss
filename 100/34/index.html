@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transform Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <h3>Perspective</h3>
+        <p>To activate 3D space, an element needs perspective. This can be applied in two ways: using the transform property, with the perspective as a functional notation.</p>
+        <code> transform: perspective( 600px ); </code>
+        <p>or using the perspective property:</p>
+        <code>perspective: 600px;</code>
+        <div class="demo">
+            <div class="box red">1</div>
+        </div>
+        <div id="blue" class="demo">
+            <div class="box blue">2</div>
+        </div>
+        <p>
+          The value of perspective determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. perspective: 2000px; yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. perspective: 100px; produces a tremendous 3D effect, like a tiny insect viewing a massive object.
+        </p>
+        <div id="simple_3d" class="demo">
+          <div class="object_3d">
+              <div class="surface surface_front">Hello,</div>
+              <div class="surface surface_up">I'm Kyo.</div>
+          </div>
+        </div>
+        <div id="cubeWrap" class="demo">
+          <div id="cube" class="spinning">
+            <figure class="front">1</figure>
+            <figure class="back">2</figure>
+            <figure class="right">3</figure>
+            <figure class="left">4</figure>
+            <figure class="top">5</figure>
+            <figure class="bottom">6</figure>
+          </div>
+        </div>
+    </section>
+</body>
+
+</html>

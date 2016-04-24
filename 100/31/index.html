@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>documet test</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="wrapper overHid">
+    <div class="big-box" style="box-shadow:0 20px 0 rgba(0,0,255,0.2);">non-float</div>
+    <div class="middle-box green floatL" style="opacity:0.6">float left</div>
+    <div class="middle-box red clear" style="margin-top:40px;box-shadow:0 -40px 0 rgba(255,0,0,0.2);">clear</div>
+</div>
+
+<p class="mulit_line">
+    <span style="font-size:12px;">这里是高度为150像素的标签内的多行文字，文字大小为12像素。<br />这里是第二行，用来测试多行的显示效果。</span><i>&nbsp;</i>
+</p>
+
+<div class="line_num parent">
+  <p>努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩。大家一起来学习前端。努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩</p>
+  <p class="child">
+    努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩。大家一起来学习前端。努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩
+  </p>
+</div>
+
+
+<div class="line_par parent">
+  <p>努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩。大家一起来学习前端。努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩</p>
+  <p class="child">
+    努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩。大家一起来学习前端。努力学好前端拥抱未来，前端在网站开发中的作用也越来越大，我爱前端，前端很好玩
+  </p>
+</div>
+
+<div class="box" style="line-height: 1.5;">
+  line-height: 1.5
+  <p>我的font-size为60px</p>
+</div>
+
+<div class="box" style="line-height: 150%;">
+  line-height: 150%;
+  <p>我的font-size为60px</p>
+</div>
+
+<div style=“text-align:center;background:#ccc;margin-bottom:20px;padding:18px;”>
+  绝对定位课程：利用隐匿文本节点实现图片水平居中
+  <p>
+     <img src="mm1.jpg" style=“position:absolute;margin-left:-20px;”>
+</p>
+</div>
+
+<h3 style="text-align: left">多行文本实现水平垂直居中</h3>
+<div class="box2">
+  <p class="text">
+    要实现高度不固定的文字垂直居中使用padding就好了。对于高度固定的div，里面文字单行或多行显示，字体大小有大有小的情况怎么办呢？方法之一就是借助于line-height。
+  多行文本水平垂直居中实现原理跟图片的实现是一样的，区别在于要把多行文本所在的容器的display水平转换成和页面和图片一样，也就是inline-block,以及重置外部继承的text-align和line-height属性值。
+  </p>
+</div>
+
+
+</body>
+</html>

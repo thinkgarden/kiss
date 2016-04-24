@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Velocity实现动画</title>
+  <link href="http://cdn.bootcss.com/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+  <style>
+  html,body{
+    height: 100%;
+  }
+    html{
+      font-size: 100%;
+      box-sizing: border-box;
+    }
+    body{
+      background: #fefefe;
+      color: #212121;
+      font-weight: 400;
+      line-height: 1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      text-align: center;
+      background-image: linear-gradient(-180deg,#fff,#f5f5f5);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #countdown-timer{
+      display: flex;
+      flex-direction: row;
+    }
+    #countdown-timer .column{
+      padding: 1em;
+    }
+    .countdown-timer__digit {
+      font-size: 6rem;
+      margin-bottom: 0;
+    }
+    .countdown-timer__unit {
+      font-weight: 400;
+      font-size: 1.25rem;
+      margin-top: 0;
+    }
+    .countdown-logo {
+      background: url(img/logo-black.svg) 0 no-repeat;
+      height: 16px;
+      width: 120px;
+      padding: 1.1rem 1rem;
+    }
+    .countdown-mask, .countdown-bg{
+      position: absolute;
+      top: 0;left:0;
+      width: 100%;
+    }
+     .countdown-mask {
+      z-index: 4;
+      height: 40%;
+      background-image: linear-gradient(-180deg,#ffffff 0%, rgba(255,255,255,0.00) 95%);
+    }
+    .countdown-bg{
+      height: 100%;
+      z-index: 0;
+      perspective: 500px;
+    }
+
+    .countdown-bg__piece {
+      height: 7.5rem;
+      width: 7.5rem;
+      background: #f5f5f5;
+      position: absolute;
+      top: -8rem;
+    }
+
+    @media screen and (min-width: 40em){
+      h1, h2 {
+          font-weight: 200;
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="countdown-timer">
+      <div class="column">
+        <h1 class="countdown-timer__digit">0</h1>
+        <h5 class="countdown-timer__unit">时</h5>
+      </div>
+      <div class="column">
+        <h1 class="countdown-timer__digit">00</h1>
+        <h5 class="countdown-timer__unit">分</h5>
+      </div>
+      <div class="column">
+        <h1 class="countdown-timer__digit">00</h1>
+        <h5 class="countdown-timer__unit">秒</h5>
+      </div>
+    </div>
+    <div class="countdown-copy">
+      <h2>触及新一代消费者<br>
+          的全新方式</h2>
+    </div>
+    <div class="countdown-logo"></div>
+  </div>
+  <div class="countdown-mask"></div>
+  <div class="countdown-bg">
+    <div class="countdown-bg_piece"></div>
+  </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/velocity/1.2.3/velocity.min.js"></script>
+  <script src="http://cdn.bootcss.com/velocity/1.2.3/velocity.ui.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
