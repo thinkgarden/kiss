@@ -1819,3 +1819,9 @@ a:active {
 .right_con{padding:1em;}
 .out_box img{display:block;}
 .btn_box{margin:1em auto 3em;}
+
+/*section3*/
+#test{overflow:hidden; zoom:1;}
+.left{width:200px; margin-bottom:-3000px; padding-bottom:3000px; background:#cad5eb; float:left;}
+.right{width:200px; margin-bottom:-3000px; padding-bottom:3000px; background:#f0f3f9; float:right;}
+.center{height:300px; margin:0 410px 0 210px; background:#ffe6b8;}
