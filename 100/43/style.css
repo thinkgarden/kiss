@@ -1,0 +1,20 @@
+section{
+  display: flex;
+  flex-wrap: wrap;
+}
+section::after{
+  content: '';
+  flex-grow: 999999999;
+}
+div{
+  height: 200px;
+  flex-grow: 1;
+  margin:2px;
+  background-color: violet;
+}
+img {
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}

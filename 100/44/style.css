@@ -1,0 +1,68 @@
+.object-fit_fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.object-fit_contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-fit_cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-fit_none {
+  -o-object-fit: none;
+     object-fit: none;
+}
+
+.object-fit_scale-down {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
+body {
+  color: #eee;
+  font-family: 'Source Code Pro', Monaco;
+  background-color: #333;
+  color: #fff;
+}
+a:link{
+  color:#fff;
+}
+a:hover{
+  color:#00bcd4;
+}
+p {
+  font-weight: 200;
+  font-size: 13px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+img {
+  height: 120px;
+  background-color: #444;
+}
+
+img[class] {
+  width: 100%;
+}
+
+.original-image {
+  margin-bottom: 50px;
+}
+
+.image {
+  float: left;
+  width: 40%;
+  margin: 0 30px 20px 0;
+}
+.image:nth-child(2n) {
+  clear: left;
+}
+.image:nth-child(2n+1) {
+  margin-right: 0;
+}
