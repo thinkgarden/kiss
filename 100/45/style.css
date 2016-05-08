@@ -1,0 +1,21 @@
+section{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div{
+    width: 200px;
+    margin: 5px;
+    background-color: violet;
+    flex-grow: 1;
+  }
+
+div:after{
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+div:nth-last-child(9) ~ div{
+  height: 0;
+}

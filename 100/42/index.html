@@ -38,10 +38,25 @@
             );
         }
       </code></pre>
+      <div class="gradient color-stop"> </div>
+      <p >We tend to think of gradients as fading colors, but if you have two color stops that are the same, you can make a solid color instantly change to another solid color. This can be useful for declaring a full-height background that simulates columns.</p>
+      <pre><code>
+        div {
+          height: 100px;
+          background-color: red;
+          background-image:
+            linear-gradient(
+              to right,
+              #E65E50,
+              #E65E50 15%,
+              #FAC339 15%,
+              #FAC339 85%,
+              #4ABEB2 85%
+          ) ;
+      }
+      </code></pre>
       <h3> full-height background</h3>
-      <div class="columns-bg">
-
-      </div>
+      <div class="columns-bg"> </div>
     </section>
 
     <section>

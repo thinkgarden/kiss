@@ -4,6 +4,17 @@
   background-color: #50B584;
   background-image: linear-gradient(145deg,#e7e879 0%,#50b584 80%);
 }
+.color-stop {
+  height: 100px;
+  background-color: red;
+  background-image:
+    linear-gradient(
+      to right,
+      red,
+      yellow 10%
+    );
+}
+
 .columns-bg{
   height: 100px;
   background-image:
