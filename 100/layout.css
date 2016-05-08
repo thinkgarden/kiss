@@ -32,7 +32,7 @@ body {
 @media (min-width: 780px) {
   body{
     font-size:18px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Helvetica Neue',"Hiragino Sans GB", Helvetica, Arial, sans-serif;
     font-weight: 400;
   }
 }
@@ -46,7 +46,7 @@ body {
   margin-left: .5em;
 }
 
-.nav a {
+.nav a:link, .nav a:visited {
   color: white;
   line-height: 2;
   padding: 0.5em 1.3em 0.5em 0;
