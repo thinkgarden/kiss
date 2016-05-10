@@ -1,0 +1,59 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+li {
+  list-style: none;
+}
+fieldset, img {
+  border: 0
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+}
+body,html {
+  height: 100%;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+
+
+body {
+  margin:0;
+  font: 16px/1.8 'Helvetica Neue',"Hiragino Sans GB", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #333;
+  background-color: #fafafa;
+}
+

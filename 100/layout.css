@@ -41,6 +41,10 @@ body {
   margin-bottom: 2.5em;
 }
 
+.nav ul{
+  padding: 1em;
+}
+
 .nav li{
   float:left;
   margin-left: .5em;
