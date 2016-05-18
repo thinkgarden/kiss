@@ -12,10 +12,14 @@
 /* =================================
   Photo 3D Transforms & Transitions
 ==================================== */
+/*
 .content{
   perspective:700px;
   perspective-origin:50%, 100%;
+}*/
 
+.photo-container{
+  perspective:700px;
 }
 
 .photo {
@@ -24,7 +28,7 @@
 }
 
 .photo:hover{
-  transform:rotate3d(1, 0, 0, 180deg);
+  transform:rotate3d(0, 1, 0, 180deg);
 }
 
 
@@ -34,5 +38,5 @@
 }
 .side-b {
   /*z-index: 100px;*/
-  transform: rotateX(180deg);
+  transform: rotateY(180deg);
 }
