@@ -14,6 +14,7 @@
 ==================================== */
 .content{
   perspective:700px;
+
 }
 
 .photo {
@@ -22,13 +23,15 @@
 }
 
 .photo:hover{
-  transform:rotateY(-180deg);
+  transform:rotate3d(1, 0, 0, 180deg);
 }
+
 
 .side-a,
 .side-b {
   backface-visibility: hidden;
 }
 .side-b {
-  transform: rotateY(180deg);
+  /*z-index: 100px;*/
+  transform: rotateX(180deg);
 }
