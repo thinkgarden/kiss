@@ -1,0 +1,179 @@
+/* Page styles
+==========================*/
+*{
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+body{
+  font: 'Varela Round' 1.1em/1.5 sans-serif;
+  color:#222;
+  background-color: #edeff0;
+}
+
+/* Icon fonts
+==========================*/
+
+@font-face {
+  font-family: 'icomoon';
+  src:    url('./fonts/icomoon.eot');
+  src:    url('./fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/icomoon.ttf?sftz8r') format('truetype'),
+      url('./fonts/icomoon.woff?sftz8r') format('woff'),
+      url('./fonts/icomoon.svg?sftz8r#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Main Layout Element colors
+==========================*/
+
+.main-header           { background-color: #384047; }
+.main-nav a            { background-color: #3f8abf; }
+.main-logo a           { background-color: #5fcf80; }
+.primary-content       { background-color: #caebf6; }
+.main-footer           { background-color: #b7c0c7; }
+.secondary-content     { background-color: #BFE3D0; }
+
+/* Main Layout
+==========================*/
+
+.main-header,
+.col {
+  padding: 20px;
+}
+
+.main-logo a,
+.main-nav a {
+  position: relative;
+  display: block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.main-nav a::before {
+  font-family: 'icomoon' ;
+  content:  attr(data-icon);
+  color:#fff;
+  position: absolute;
+  top: 7px;
+  left:-30%;
+  transition: .4s;
+}
+
+.main-nav a:hover::before {
+  left:10%;
+}
+
+.main-footer {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.extra-content,
+.main-banner {
+  display: none;
+}
+
+
+/* Imagery
+==========================*/
+.feat-img {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 1px solid;
+  padding: 5px;
+}
+
+
+/* Media Queries
+==========================*/
+@media (min-width: 1px) and (max-width: 768px) {
+  .main-nav li {
+    margin-top: 15px;
+  }
+  .main-nav li:first-child {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    padding-top: 120px;
+  }
+  /* Header and Banner layout
+  ==========================*/
+  .main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 120px;
+  }
+  .main-nav {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    height: 100%;
+  }
+  .main-nav li {
+    -webkit-align-self: center;
+    align-self: center;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    margin-left: 8px;
+    margin-right: 8px;
+    transition: .5s;
+  }
+  .main-nav li:hover:not(.main-logo){
+    flex-grow: 2;
+  }
+  .main-logo:first-child {
+    /*margin-right: auto;*/
+    -webkit-flex-grow:1.5;
+    flex-grow: 1.5;
+    margin-right: 50px;
+  }
+  .main-banner {
+    background-color: #dfe2e4;
+    text-align: center;
+    padding: 50px 15px;
+    display: block;
+  }
+
+  /* Colum layout
+  ==========================*/
+  .content-row{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
+
+  .col{
+    flex: 1;
+  }
+  .primary-content{
+    flex:2;
+  }
+  .extra-content{
+    display: block;
+  }
+
+  /* Imagery
+  ==========================*/
+  .feat-img{
+    width: 50%;
+    float: left;
+    margin-right: 25px;
+  }
+
+}
