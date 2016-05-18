@@ -1,0 +1,30 @@
+/* Media Quries
+=============================*/
+
+@media (min-width: 769px) {
+  .main-header,
+  .main-nav,
+  .row {
+    display: flex;
+  }
+
+  .main-header {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row{
+    justify-content:center;
+  }
+}
+
+@media (min-width: 1025px) {
+  .main-header {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
