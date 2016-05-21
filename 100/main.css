@@ -4,30 +4,20 @@
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 
-a {
-  text-decoration: none;
-}
+a {text-decoration: none; }
 
-ul{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+ul{margin: 0; padding: 0; list-style: none; }
 
 .clearfix:before,
 .clearfix:after {
   content: " "; /* 1 */
   display: table; /* 2 */
 }
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  *zoom: 1;
-}
+.clearfix:after {clear: both; }
+.clearfix {*zoom: 1; }
 a.hamburger{
   position: absolute;
   top:10px;
@@ -42,21 +32,13 @@ a.hamburger{
   transition:background-color .5s;
   cursor: pointer;
 }
-a.hamburger:hover {
-    background-color: rgba(255, 255, 255, .3);
-}
-a.hamburger i {
-  font-size: 20px;
-  color: white;
-}
+a.hamburger:hover {background-color: rgba(255, 255, 255, .3); }
+a.hamburger i {font-size: 20px; color: white; }
 .sidebar {
   width: 250px;
   background-color: #fff;
   position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 100;
+  left: 0; top: 0; bottom: 0; z-index: 100;
   -webkit-transform: translateX(-250px);
       -ms-transform: translateX(-250px);
           transform: translateX(-250px);
@@ -69,9 +51,7 @@ a.hamburger i {
           transform: translateX(0);
 }
 
-.sidebar ul {
-  padding-top: 30px;
-}
+.sidebar ul {padding-top: 30px; }
 
 .sidebar ul li a {
   display: block;
@@ -82,28 +62,22 @@ a.hamburger i {
   color: gray;
 }
 
-.sidebar ul li a:hover {
-  background-color: #6eefff;
-}
+.sidebar ul li a:hover {background-color: #6eefff; }
 
 .ui-mask {
-  background-color: rgba(0,0,0,0.5);
-  height: 100%;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   z-index: 3;
-  position: fixed;
   display: none;
 }
 
-.ui-mask.show {
-  display: block;
-}
+.ui-mask.show {display: block; }
 
-.hero {
-  background-color: rgb(0, 188, 212);
-}
+.hero {background-color: rgb(0, 188, 212); }
 .hero h1 {
   line-height: 160px;
   font-weight: normal;
@@ -115,11 +89,10 @@ a.hamburger i {
   margin: 20px auto;
   padding: 0 10px;
   max-width: 900px;
+  counter-reset: post;
 }
 
-.toc li{
-  margin-bottom: 20px;
-}
+.toc li{margin-bottom: 20px; }
 
 .toc li a{
   display: block;
@@ -138,6 +111,11 @@ a.hamburger i {
   color: white;
   line-height: 96px;
   text-align: center;
+}
+
+.toc a .id:before{
+  counter-increment: post;
+  content: counter(post);
 }
 
 .toc a .detail {
@@ -163,9 +141,7 @@ a.hamburger i {
   line-height: 2.3;
 }
 
-.toc a .detail .date {
-  opacity: .8;
-}
+.toc a .detail .date {opacity: .8; }
 
 footer {
   background-color: #000;
