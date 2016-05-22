@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>colors</title>
+  <style>
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family:'Gotham','Varela Round',sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    letter-spacing: -.01em;
+  }
+  .app-wrapper{
+    height: 100vh;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-header{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.04) 0 1px;
+    z-index: 4;
+    flex-shrink: 0;
+  }
+  .app-footer {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    flex-shrink: 0;
+    background-color: #fff;
+    color: #5D4E71;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+  .content{
+    webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+  }
+  .colors {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .colors .color{
+    flex-grow: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
+  .color .hex {
+    height: 100%;
+    width: 150px;
+    align-self: center;
+    margin-left: 20px;
+    font-size: 25px !important;
+    color: #20172C;
+    opacity: 0.3;
+  }
+  @media  (min-width: 800px) {
+    .content {
+      flex-direction: column;
+    }
+    .colors {
+      flex-direction: row;
+      height: 100%;
+      flex-grow: 1;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="app-wrapper">
+    <div class="app-header"></div>
+    <div class="content">
+      <div class="colors">
+        <div class="color" data-index="1" style="box-shadow: rgb(28, 253, 122) 0px 0px 0px 1px; background: rgb(28, 253, 122);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="2" style="box-shadow: rgb(214, 248, 214) 0px 0px 0px 1px; background: rgb(214, 248, 214);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="3" style="box-shadow: rgb(127, 198, 164) 0px 0px 0px 1px; background: rgb(127, 198, 164);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="4" style="box-shadow: rgb(251, 255, 18) 0px 0px 0px 1px; background: rgb(251, 255, 18);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="5" style="box-shadow: rgb(93, 115, 126) 0px 0px 0px 1px; background: rgb(93, 115, 126);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+      </div>
+    </div>
+    <div class="app-footer"></div>
+  </div>
+</body>
+</html>
