@@ -1,81 +1,83 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>文本图标对齐与定位二三事</title>
-<style>
-body { margin: 0; font: 14px/1.4 "Microsoft YaHei"; background-color: #EDEFF0; }
-a { color: #50B6E5; }
-.constr { width: 1200px; margin-left: auto; margin-right: auto; }
-.regist-head { height: 60px; line-height: 60px; padding-left: 30px; background-color: #be3948; color: #fff; font-size: 18px; }
-.regist-body { min-height: 400px; padding: 100px 0; background-color: #fff; }
-.regist-main { width: 600px; margin-left: auto; margin-right: auto; }
-.regist-group { margin-top: 20px; overflow: hidden; }
-.regist-label { width: 70px; padding-top: 10px; float: left; }
-.regist-cell { display: table-cell; *display: inline-block; }
-.regist-input { height: 18px; line-height: 18px; width: 260px; padding: 10px 5px; margin: 0 10px 0 0; border: 1px solid #d0d6d9; vertical-align: top; }
-.regist-code-input { width: 130px; }
-.regist-btn { display: inline-block; width: 160px; line-height: 40px; background-color: #39b94e; color: #fff; text-align: center; text-decoration: none; }
-.regist-btn:hover { background-color: #33a646; }
-.icon-warn { display: inline-block; width: 20px; height: 21px; background: url(http://img.mukewang.com/5453084a00016ae300120012.gif) no-repeat center; }
-
-.regist-star { position: absolute; margin-left: -1em; font-family: simsun; color: #f30; }
-.regist-remark { position: absolute; line-height: 21px; padding-top: 9px; color: #666; }
-.regist-warn { padding-left: 20px; color: #be3948; }
-.regist-warn > .icon-warn { position: absolute; margin-left: -20px; }
-</style>
+  <meta charset="UTF-8">
+  <title>display:tabel-cell</title>
+  <link rel="stylesheet" href="../normalize.css">
+  <link rel="stylesheet" href="../layout.css">
+  <link rel="stylesheet" href="../lib.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="constr">
-    <div class="regist-head">注册</div>
-    <div class="regist-body">
-      <div class="regist-main">
-          <div class="regist-group">
-              <label class="regist-label"><span class="regist-star">*</span>登录邮箱</label>
-                <div class="regist-cell">
-                  <input type="email" class="regist-input"><span class="regist-remark regist-warn">
-                      <i class="icon-warn"></i>邮箱格式不准确（演示）
-                    </span>
-                </div>
-            </div>
-            <div class="regist-group">
-              <label class="regist-label"><span class="regist-star">*</span>登录密码</label>
-                <div class="regist-cell">
-                  <input type="password" class="regist-input"><span class="regist-remark">
-                      请输入6-16位密码，区分大小写，不能使用空格
-                    </span>
-                </div>
-            </div>
-            <div class="regist-group">
-              <label class="regist-label"><span class="regist-star">*</span>用户昵称</label>
-                <div class="regist-cell">
-                  <input type="password" class="regist-input">
-                </div>
-            </div>
-            <div class="regist-group">
-              <label class="regist-label">手机号码</label>
-                <div class="regist-cell">
-                  <input type="tel" class="regist-input">
-                </div>
-            </div>
-            <div class="regist-group">
-              <label class="regist-label"><span class="regist-star">*</span>验 证 码</label>
-                <div class="regist-cell">
-                  <input class="regist-input regist-code-input"><img src="http://img.mukewang.com/545308540001678401500040.jpg">
-                </div>
-            </div>
-            <div class="regist-group">
-              <label class="regist-label">&nbsp;</label>
-                <div class="regist-cell">
-                  <input type="checkbox" checked><label>我已阅读并同意<a href="##">慕课协议</a>。</label>
-                    <p>
-                      <a href="javascript:" class="regist-btn">立即注册</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+  <header>
+    <div class="nav">
+      <ul class="container clearfix">
+        <li><a href="/index.html">网站首页</a></li>
+        <li><a href=""></a></li>
+      </ul>
     </div>
+  </header>
+  <div class="container">
+    <section>
+        <h1>多行文字水平垂直居中</h1>
+        <div class="box box__style-inline">
+          <p>要实现高度不固定的文字垂直居中使用padding就好了。对于高度固定的div，里面文字单行或多行显示，字体大小有大有小的情况怎么办呢？方法之一就是借助于line-height。
+  多行文本水平垂直居中实现原理跟图片的实现是一样的，区别在于要把多行文本所在的容器的display水平转换成和页面和图片一样，也就是inline-block,以及重置外部继承的text-align和line-height属性值。</p>
+        </div>
+    </section>
+
+    <section class="img_box">
+      <h1>大小不固定，图片的垂直居中</h1>
+      <p class="mt10"><b>①display:table-cell和文字大小控制居中</b></p>
+      <ul class="clearfix" style="width:600px;margin:auto;">
+        <li>
+            <div><img src="img/mm1.jpg"></div>
+          </li>
+          <li>
+            <div><img src="img/mm2.jpg"></div>
+          </li>
+          <li>
+            <div><img src="img/mm3.jpg"></div>
+          </li>
+          <li>
+            <div><img src="img/mm4.jpg"></div>
+          </li>
+      </ul>
+      <p class="mt10"><b>②display:inline-block和文字大小控制居中</b></p>
+      <div id="v_inline">
+        <a href=""><img src="img/mm1.jpg" alt=""></a>
+        <a href=""><img src="img/mm2.jpg" alt=""></a>
+        <a href=""><img src="img/mm3.jpg" alt=""></a>
+        <a href=""><img src="img/mm4.jpg" alt=""></a>
+      </div>
+    </section>
+
+    <section>
+    <h1>display:table-cell与两栏自适应布局</h1>
+      <div class="fix" style="border:1px solid #ececec;padding: 5px 6px;background-color: #eee;" >
+        <img id="targetImage" src="img/mm1.jpg" width="128" class="l mr20" />
+        <div class="cell">
+            <p class="f14">1977年的今天，28岁的拉齐奥中场球员Luciano Re Cecconi和两个朋友走入罗马的一家珠宝店。不知为何，他突然想来个恶搞玩笑。进入珠宝店后他就大喊，"别动！打劫！"他随后、也是最后的两句话是在珠宝店主冲出开枪命中他后说的，"It's a joke！It's a Joke！"30分钟后，他死了。 让我伤心的时候就拿出来回味一下。
+微博：坐在办公室，只听轰隆隆几声巨响，晴天也能打雷吗？原来街对面的芭莎咖啡厅被炸成了两截。这定点爆破也太失败了，也不清下场，把路过的汽车震得灰头土脸，愣在路中央不知如何是好。其次，房子只炸了一半，另一半屹立不倒，是zha药太水还是房子质量太好</p>
+            <h6 class="f12">//zxx:无论图片宽度多少，布局总是自适应的~~</h6>
+        </div>
 </div>
+
+    </section>
+
+    <section>
+      <h1>display:table-cell下等高布局实现</h1>
+       <div style="font-size: 12px;width:600px;margin:auto;">
+          <div class="list_row">
+              <div class="list_cell">你一定也有过这种感觉的。当你心事重重，渴望找一个人聊一聊的时候，那个可以聊的人来了，可是你们却并没有聊什么。当然，聊是聊了，可是他聊他的，你也试着开始聊你的，只是到后来，你放弃了……那么，最后的办法就是静下来，啃啮自己的寂寞。或者反过来说，让寂寞来吞噬你。------罗兰《寂寞的感觉》</div>
+              <div class="list_cell list_center">作为一个被基阿异捅过两个大血窟窿的人。告诉后来的基友们一句：一命二运三风水，四积阴功五读书。</div>
+              <div class="list_cell">奔波了一天，收到了无数的生日快乐，享受了电影见面会现场各种形式的祝福和礼物，以及场面宏大的生日快乐歌，感谢＜西风烈＞，感谢支持我的朋友们！现在机场举长寿面祝你们都永远幸福快乐！ </div>
+          </div>
+      </div>
+
+    </section>
+
+  </div>
+  <footer></footer>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>absolute定位</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<section>
+
+    <div id="newpros"><div class="mt"><h2>absolute实现</h2></div></div>
+    <div id="madding-1" class="mc list-h">
+        <div class="tabcon list-h">
+            <dl>
+                <dt class="p-img">
+                    <a href="##"><img width="130" height="130" src="http://img10.360buyimg.com/n3/834/11752677-6197-4ffa-b4c0-e66d02640bad.jpg" /></a>
+                    <div class="p-price">￥999.00</div>
+                </dt>
+                <dd class="p-name">
+                    <a href="##">LG  GD580  3G手机 300万像素 999返100元券！</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+    <div id="newpros"><div class="mt"><h2>margin实现</h2></div></div>
+    <div id="madding-1" class="mc list-h">
+        <div class="tabcon list-h">
+            <dl>
+                <dt class="p-img">
+                    <a href="##"><img width="130" height="130" src="http://img10.360buyimg.com/n3/834/11752677-6197-4ffa-b4c0-e66d02640bad.jpg" /></a>
+                    <div class="new-price-x"><span class="new-price">￥999.00</span></div>
+                </dt>
+                <dd class="p-name">
+                    <a href="##">LG  GD580  3G手机 300万像素 999返100元券！</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <button id="btnWidth">改变宽度</button> <button id="btnRelative">父标签static</button>
+</section>
+<section class="">
+<h3 class="title">absolute实现等高布局</h3>
+  <div class="out_box">
+    <div class="left_box">
+        <div class="equal_height left_box_bg"></div>
+        <div id="leftCon" class="left_con">
+            <img src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" />
+        </div>
+    </div>
+    <div class="right_box">
+        <div id="rightCon" class="right_con">
+            <img id="rightImage" src="http://image.zhangxinxu.com/image/study/s/s128/mm5.jpg" />
+        </div>
+    </div>
+</div>
+<div class="btn_box">
+    <button id="btnLeftSide">左侧栏高度增加</button>
+    <button id="btnRightSide">右侧栏高度增加</button>
+</div>
+</section>
+
+<section>
+  <div id="test">
+    <div class="left">左边，无高度属性，自适应于最高一栏的高度</div>
+    <div class="right">右边，无高度属性，自适应于最高一栏的高度</div>
+    <div class="center">中间，高度300像素，左右两栏的高度与之自适应</div>
+</div>
+
+</section>
+</div>
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

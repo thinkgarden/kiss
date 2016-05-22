@@ -1,45 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>CSS Transform Demo</title>
-    <link rel="stylesheet" href="style.css">
+  <title>3D Transform Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="interactions.css">
 </head>
-
 <body>
-    <section class="container">
-        <h3>Perspective</h3>
-        <p>To activate 3D space, an element needs perspective. This can be applied in two ways: using the transform property, with the perspective as a functional notation.</p>
-        <code> transform: perspective( 600px ); </code>
-        <p>or using the perspective property:</p>
-        <code>perspective: 600px;</code>
-        <div class="demo">
-            <div class="box red">1</div>
-        </div>
-        <div id="blue" class="demo">
-            <div class="box blue">2</div>
-        </div>
-        <p>
-          The value of perspective determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. perspective: 2000px; yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. perspective: 100px; produces a tremendous 3D effect, like a tiny insect viewing a massive object.
-        </p>
-        <div id="simple_3d" class="demo">
-          <div class="object_3d">
-              <div class="surface surface_front">Hello,</div>
-              <div class="surface surface_up">I'm Kyo.</div>
-          </div>
-        </div>
-        <div id="cubeWrap" class="demo">
-          <div id="cube" class="spinning">
-            <figure class="front">1</figure>
-            <figure class="back">2</figure>
-            <figure class="right">3</figure>
-            <figure class="left">4</figure>
-            <figure class="top">5</figure>
-            <figure class="bottom">6</figure>
-          </div>
-        </div>
-    </section>
-</body>
+  <div class="container">
+    <header class="main-header clearfix">
+      <img class="logo" src="img/camera.svg">
+      <h1 class="name">3DTransform <span>Gallery</span></h1>
+    </header>
 
+    <div class="content clearfix">
+
+      <div class="photo-container">
+        <div class="photo">
+          <img class="side-a" src="img/1.jpg" alt="Dazzling Auroras over Earth">
+          <div class="photo-desc side-b">
+            <h3>Dazzling Auroras</h3>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <a href="#" class="button">download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-container">
+        <div class="photo">
+          <img class="side-a" src="img/2.jpg" alt="International Space Station">
+          <div class="photo-desc side-b">
+            <h3>The Space Station</h3>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <a href="#" class="button">download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-container">
+        <div class="photo">
+          <img class="side-a" src="img/3.jpg" alt="Planet Earth">
+          <div class="photo-desc side-b">
+            <h3>Planet Earth</h3>
+            <p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <a href="#" class="button">download</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
 </html>

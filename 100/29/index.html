@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>big background-slide</title>
-  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="../normalize.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Flex layout</title>
 </head>
 <body>
-  <div class="home__slides">
-    <ul>
-      <li class="banner-img" style="background:url(images/Slide1.jpg);background-position: 50% 50%;background-size: cover;"> 我是背景1 </li>
-      <li class="banner-img" style="background:url(images/Slide2.jpg);background-position: 50% 50%;background-size: cover;">我是背景2 </li>
-      <li class="banner-img" style="background:url(images/Slide3.jpg);background-position: 50% 50%;background-size: cover;">我是背景3</li>
-      <li class="banner-img" style="background:url(images/Slide4.jpg);background-position: 50% 50%;background-size: cover;">我是背景4</li>
-      <li class="banner-img" style="background:url(images/Slide5.jpg);background-position: 50% 50%;background-size: cover;">我是背景5</li>
-    </ul>
+  <div class="main-wrapper">
+    <header class="main-header">
+      <ul class="main-nav">
+        <li class="main-logo"><h1><a href="#">Logo</a></h1></li>
+        <li><a href="#" data-icon="&#xe900;">Home</a></li>
+        <li><a href="#" data-icon="&#xe901;">About</a></li>
+        <li><a href="#" data-icon="&#xe903;">Blog</a></li>
+        <li><a href="#" data-icon="&#xe904;">Contact</a></li>
+      </ul>
+    </header>
+    <div class="main-banner">
+      <h1>Kyo Liu</h1>
+      <h2>Front-end developer</h2>
+    </div>
+    <div class="content-row">
+      <div class="extra-content col">
+        <h3>Extra content</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus dignissimos debitis omnis tenetur totam, reprehenderit est, doloremque dolorem magni voluptate tempore adipisci vero, molestiae facilis vitae.</p>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quam eveniet accusantium rerum possimus.</p>
+      </div>
+
+      <div class="primary-content col">
+        <h3>Primary Content</h3>
+        <img class="feat-img" src="http://Lorempixel.com/400/300" alt="">
+        <p>Learn how the display property can be used to layout and align elements on the page. We’ll cover the block, inline and inline-block methods, along with a few tips on using the table and table-cell values to create vertically aligned content.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum eaque, autem consequuntur?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, expedita aliquid, ipsam est maxime iure. Minima, dignissimos quis.</p>
+      </div>
+
+      <div class="secondary-content col">
+        <h3>Secondary Content</h3>
+        <p>Learn how the display property can be used to layout and align elements on the page. We’ll cover the block, inline and inline-block methods, along with a few tips on using the table and table-cell values to create vertically aligned content.</p>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum eaque, autem consequuntur?</p>
+      </div>
+    </div>
+    <footer class="main-footer">
+      <p>&copy; 2015 Kyo Liu.</p>
+    </footer>
   </div>
-  <!-- <script data-main="js/main" src="js/require.js"></script> -->
-  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-  <script>
-    $(function(){
-      var index = 1;
-      var last_index = 0;
-      var showPic = function(a) {
-          if (index >= a.length) {
-              index = 0
-          }
-          a.eq(last_index).stop().animate({
-              opacity: 0
-          },
-          800).end().eq(index).stop().animate({
-              opacity: 1
-          },
-          800);
-          last_index = index;
-          index++
-      }
-      var a = $(".home__slides").find("li");
-
-      var c = setInterval(function() {
-          showPic(a)
-      }, 3000);
-
-    });
-  </script>
 </body>
 </html>

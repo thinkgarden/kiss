@@ -1,730 +1,132 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="css/animate.min.css" rel="stylesheet" />
-    <link href="css/fancybox.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <style>
-    .chat_list p img{width:30px;vertical-align:top;padding:5px 2px 0 2px;}
-    .bottom_bar{width:640px;height:81px;background:url(http://minires.hdtmedia.com/uniqlo20160103/img/bottom-bar.jpg);}
-    .bottom_bar input{width:406px;height:58px;left:84px;top:16px;position:absolute;border:none;outline:none;background:none;font-size:27px;line-height:58px;display:none}
-    .user_reply{display:block;}
-    .user_reply p{}
-    .user_reply .text{float:right;margin-right:20px;background:#a0e75b;max-width:483px;box-sizing:border-box;border:1px solid #84d451;border-radius:8px;padding:15px 20px;position:relative;width:auto;height:auto}
-    .user_reply .text p{line-height:36px;font-size:27px;}
-    .user_reply .arrow{position:absolute;right:-12px;top:23px;}
-    .idol_replay{display:block}
-    #fancybox-close{width:182px;height:61px;background:url(http://minires.hdtmedia.com/uniqlo20160103/img/close-btn2.png);left:20px;top:20px;/*animation:iconScale 2s linear infinite;-webkit-animation:iconScale 2s linear infinite;*/}
-    #fake_input{display:block;}
-    .sound_icon{position:absolute;right:5px;padding:10px;top:5px;width:31px;height:24px;;z-index:10}
-    .sound_icon img{position:absolute;left:10px;top:10px;}
-    .sound_icon .btn1{display:none}
-    .sound_icon .btn2{display:block;}
-    .sound_icon.active .btn2{display:none;}
-    .sound_icon.active .btn1{display:block;}
-
-    @keyframes iconScale
-    {
-    0%{transform:scale(1.2);}
-    50%{transform:scale(0.9);}
-    100%{transform:scale(1.2);}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>colors</title>
+  <style>
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family:'Gotham','Varela Round',sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    letter-spacing: -.01em;
+  }
+  .app-wrapper{
+    height: 100vh;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+  }
+  .app-header{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: rgba(0,0,0,0.04) 0 1px;
+    z-index: 4;
+    flex-shrink: 0;
+  }
+  .app-footer {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    flex-shrink: 0;
+    background-color: #fff;
+    color: #5D4E71;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+  .content{
+    webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+  }
+  .colors {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .colors .color{
+    flex-grow: 1;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
+  .color .hex {
+    height: 100%;
+    width: 150px;
+    align-self: center;
+    margin-left: 20px;
+    font-size: 25px !important;
+    color: #20172C;
+    opacity: 0.3;
+  }
+  @media  (min-width: 800px) {
+    .content {
+      flex-direction: column;
     }
-
-    @-webkit-keyframes iconScale
-    {
-    0%{-webkit-transform:scale(1.2);}
-    50%{-webkit-transform:scale(0.9);}
-    100%{-webkit-transform:scale(1.2);}
+    .colors {
+      flex-direction: row;
+      height: 100%;
+      flex-grow: 1;
     }
-    </style>
-    <!--移动端版本兼容 -->
-    <script type="text/javascript">
-        var phoneWidth = parseInt(window.screen.width);
-        var phoneScale = phoneWidth / 640;
-        var ua = navigator.userAgent;
-        // if(window.screen.height == 480) {
-        //     document.write('<link href="css/style2.css" rel="stylesheet" />');
-        // }
-        if(/Android (\d+\.\d+)/.test(ua)) {
-            var version = parseFloat(RegExp.$1);
-            if(version > 2.3) {
-                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
-            } else {
-                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
-            }
-        } else {
-            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
-        }
-    </script>
-    <script>
-    function isWeiXin() {
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    </script>
-    <!-- 请将以下代码紧贴于网站</head>标签之前 -->
-    <script type="text/javascript">
-    (function() {
-        window._CiQ11458 = window._CiQ11458 || [];
-        window._CiQ11458.push(['_cookieUseRootDomain', true]);
-        var c = document.createElement('script');
-        c.type = 'text/javascript';
-        c.async = true;
-        c.charset = 'utf-8';
-        c.src = '//collect.cn.miaozhen.com/ca/11458';
-        var h = document.getElementsByTagName('script')[0];
-        h.parentNode.insertBefore(c, h);
-    })();
-    </script>
-    <noscript>
-    <link href="//collect.cn.miaozhen.com/refer/collect?i=11458&v=13922245942&pu=http%3A//%28NoScriptPageviews%29&pt=NoScriptPageviews&ru=http%3A//%28NoScriptClients%29&csh=1000&csw=1000&css=10" rel="stylesheet" type="text/css" />
-    </noscript>
-    <!--移动端版本兼容 end -->
-    <title>活力巨星拜年群（3）</title>
-
+  }
+  </style>
 </head>
 <body>
-    <video id="video1" src="http://minires.hdtmedia.com/uniqlo20160103/video/video-ck.mp4"></video>
-    <video id="video2" src="http://minires.hdtmedia.com/uniqlo20160103/video/video-yn.mp4"></video>
-    <audio id="music" src="http://minires.hdtmedia.com/uniqlo20160103/audio/music.mp3"></audio>
-    <div class="loading">
-        <img src="http://minires.hdtmedia.com/uniqlo20160103/img/loading.gif" class="loading_icon" />
-    </div>
-
-    <div class="sound_icon active">
-        <img src="http://minires.hdtmedia.com/uniqlo20160103/img/music-btn1.png" class="btn1" />
-        <img src="http://minires.hdtmedia.com/uniqlo20160103/img/music-btn2.png" class="btn2" />
-    </div>
-
-    <div class="container">
-        <ul class="chat_list">
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>喂喂喂！好久没见。在不？<br/>我在这里先和你们拜个早年!<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon1.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="image">
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/video-thumb1.png" class="video_btn1" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="text">
-                    <p>大忙人活力先生也出现啦！<br/>那我也拜个早年呗!<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon2.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="image">
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/video-thumb2.png" class="video_btn2" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>对了。倪妮、<span class="user_name"></span>，有没有预备什么新衣服过年啊？<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon3.png" /><img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon4.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="text">
-                    <p>当然有啦。给你晒两套看看！ </p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="image">
-                    <a href="http://minires.hdtmedia.com/uniqlo20160103/img/nn-detail1.jpg" class="thumb_img1" onclick='javascript:TrackWeb("pic01")'><img src="http://minires.hdtmedia.com/uniqlo20160103/img/nn-tb1.png" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="text">
-                    <p>宽腿裤配红上衣，新年新潮行新运</p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="image">
-                    <a href="http://minires.hdtmedia.com/uniqlo20160103/img/nn-detail2.jpg" class="thumb_img1" onclick='javascript:TrackWeb("pic02")'><img src="http://minires.hdtmedia.com/uniqlo20160103/img/nn-tb2.png" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="text">
-                    <p>牛仔宽腿裤加粉色针织衫，人品立马上升，自然万事如意！</p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>不错哈。给你们看看我预备的。够活力不？<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon5.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="image">
-                    <a href="http://minires.hdtmedia.com/uniqlo20160103/img/ck-detail1.jpg" class="thumb_img1" onclick='javascript:TrackWeb("pic03")'><img src="http://minires.hdtmedia.com/uniqlo20160103/img/ck-tb1.png" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>红外套够过年气氛，走亲戚穿最合适</p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="image">
-                    <a href="http://minires.hdtmedia.com/uniqlo20160103/img/ck-detail2.jpg" class="thumb_img1" onclick='javascript:TrackWeb("pic04")'><img src="http://minires.hdtmedia.com/uniqlo20160103/img/ck-tb2.png" /></a>
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>见老友，我就打算配件紫色的，神采飞扬不？<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon6.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar2.jpg" /></div>
-                <div class="text">
-                    <p><span class="user_name"></span>呢？有没有看中什么衣服过年？</p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <li>
-                <div class="left"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg" /></div>
-                <div class="text">
-                    <p>输入拜年，我就会发红包给你们立即添置新衣噢！<img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png" /><img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png" /><img src="http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png" /></p>
-                    <img src="http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png" class="arrow" />
-                </div>
-            </li>
-            <!-- <div class="user_reply">
-                <img src="http://minires.hdtmedia.com/uniqlo20160103/img/default-avatar.jpg" class="avatar" width="69" height="69" />
-                <div class="text"></div>
-            </div>
-            -->
-        </ul>
-
-
-
-        <div class="bottom_bar">
-            <input type="text" id="fake_input" />
-            <input type="text" id="user_input" />
+  <div class="app-wrapper">
+    <div class="app-header"></div>
+    <div class="content">
+      <div class="colors">
+        <div class="color" data-index="1" style="box-shadow: rgb(28, 253, 122) 0px 0px 0px 1px; background: rgb(28, 253, 122);">
+          <div class="hex">#1CFD7A</div>
         </div>
-        <!-- <img src="http://minires.hdtmedia.com/uniqlo20160103/img/bottom-bar.jpg" class="bottom_bar" /> -->
-        <!-- <div class="bottom_bar2">
-            <img src="http://minires.hdtmedia.com/uniqlo20160103/img/blue-line.jpg" class="line" />
-            <img src="http://minires.hdtmedia.com/uniqlo20160103/img/cursor1.png" class="cursor" />
-            <div class="send_btn"></div>
-        </div> -->
-    </div>
-
-    <div class="pop_bag">
-        <div class="ck_red_bg">
-            <span class="close_btn"></span>
-            <span class="open_btn"></span>
+        <div class="color" data-index="2" style="box-shadow: rgb(214, 248, 214) 0px 0px 0px 1px; background: rgb(214, 248, 214);">
+          <div class="hex">#1CFD7A</div>
         </div>
+        <div class="color" data-index="3" style="box-shadow: rgb(127, 198, 164) 0px 0px 0px 1px; background: rgb(127, 198, 164);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="4" style="box-shadow: rgb(251, 255, 18) 0px 0px 0px 1px; background: rgb(251, 255, 18);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+        <div class="color" data-index="5" style="box-shadow: rgb(93, 115, 126) 0px 0px 0px 1px; background: rgb(93, 115, 126);">
+          <div class="hex">#1CFD7A</div>
+        </div>
+      </div>
     </div>
-
-    <div class="share_layer">
-        <img src="http://minires.hdtmedia.com/uniqlo20160103/img/share-txt.png" class="share_txt" />
-        <a onclick='javascript:TrackWeb("open_packet")' href="http://uniqlo.hdtmedia.com/20160103/ticket/index.html"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/close-icon.png" class="close_icon" /></a>
-    </div>
-
-    <div class="weibo_layer">
-        <a href="http://uniqlo.hdtmedia.com/20160103/ticket/index.html"><img src="http://minires.hdtmedia.com/uniqlo20160103/img/buy-btn.png" class="buy_btn" /></a>
-    </div>
-
-    <img src='http://minires.hdtmedia.com/uniqlo20160103/img/red-bag.jpg' style="position:absolute;top:-9999px;left:0" />
-
-    <script src="../js/jquery.min.js"></script>
-    <script src="http://minires.hdtmedia.com/uniqlo20160103/js/jquery.fancybox-1.3.1.pack.js"></script>
-
-
-
-    <script>
-    var musicAble = true;
-    var chatIndex = 0;
-    var chatLength = $(".chat_list li").length;
-    var animateAble = true;
-    var wrongTimes = 0;
-    var timer;
-    var timer2;
-    var userHead = null;
-    var userText = null;
-    var userName = "你";
-    var endAll = false;
-    var ckReply = "<li style='display:block'><div class='left'><img src='http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg' /></div><div class='text'><p>输入拜年，我就会发红包给你们立即添置新衣噢！<img src='http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png' /><img src='http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png' /><img src='http://minires.hdtmedia.com/uniqlo20160103/img/icon7.png' /></p><img src='http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png' class='arrow' /></div></li>";
-    var ckReplyTwo = "<li style='display:block'><div class='left'><img src='http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg' /></div><div class='text'><p>看见帅哥美女就手抖了？给你红包要接稳啊！</p><img src='http://minires.hdtmedia.com/uniqlo20160103/img/arrow.png' class='arrow' /></div></li>";
-
-    var ckReplyThree = "<div class='idol_replay'><div class='left'><img src='http://minires.hdtmedia.com/uniqlo20160103/img/avatar1.jpg' /></div><div class='image'><img src='http://minires.hdtmedia.com/uniqlo20160103/img/red-bag.jpg' class='red_bag_icon' /></div></div>";
-
-
-    function GetQueryString(name){
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
-    }
-
-
-
-    function videoEnded(){
-        setTimeout(function(){
-            animateAble = true;
-            displayChat();
-            timer = setInterval("displayChat()",4000);
-        },500)
-
-    }
-
-    function scrollChat(){
-        var height = $(".chat_list")[0].scrollHeight;
-        $(".chat_list").animate({scrollTop:height},800);
-        if(musicAble){
-            $("#music")[0].play();
-        }
-    }
-
-    function showInputPanel(){
-        $("#fake_input").hide();
-        $("#fake_input").blur();
-        $("#user_input").show();
-        $("#user_input").focus();
-        // $(".bottom_bar1").hide();
-        // $(".bottom_bar2").show().animate({
-        //     "bottom":"0px"
-        // },500);
-        // $(".chat_list").addClass("up");
-        $(".chat_list").animate({scrollTop:9999},800)
-    }
-
-    function displayChat(){
-
-
-        if(animateAble && (chatIndex < chatLength)){
-            $(".chat_list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
-            $(".chat_list li").eq(chatIndex).show();
-            scrollChat();
-            chatIndex++;
-            if(chatIndex == chatLength){
-                clearInterval(timer);
-                showInputPanel();
-            }
-        }
-
-    }
-
-    function fakeInput(){
-        clearInterval(timer);
-        userText = $("#fake_input").val().trim();
-        $("#fake_input").val("");
-
-        if(userText.indexOf("拜年") > -1 || userText.indexOf("红包") > -1){
-            $("#fake_input").remove();
-            var userReply = "<div class='user_reply'><img src='" + userHead + "' class='avatar' width='69' height='69' /><div class='text'><p>" + userText + "</p><img src='http://minires.hdtmedia.com/uniqlo20160103/img/arrow2.png' class='arrow' /></div></div>";
-            $(".chat_list li.active").after(userReply);
-            scrollChat();
-            setTimeout(function(){
-                $(".chat_list").append(ckReplyThree);
-                scrollChat();
-                $(".red_bag_icon").click(function(){
-                    $(".pop_bag").show();
-                    $(".ck_red_bg").show().addClass("animated bounceIn")
-                });
-            },1000);
-            endAll = true;
-        }else if($.trim(userText) !== ""){
-            var userReply = "<div class='user_reply'><img src='" + userHead + "' class='avatar' width='69' height='69' /><div class='text'><p>" + userText + "</p><img src='http://minires.hdtmedia.com/uniqlo20160103/img/arrow2.png' class='arrow' /></div></div>";
-            //$("#fake_input").blur();
-            //$("#fake_input").hide();
-            $(".chat_list li.active").after(userReply);
-            scrollChat();
-            timer = setInterval("displayChat()",4000);
-        }else{
-            //$("#fake_input").blur();
-            //$("#fake_input").hide();
-            timer = setInterval("displayChat()",4000);
-        }
-
-    }
-
-    function finalInput(){
-        userText = $("#user_input").val();
-
-        if($.trim(userText) !== ""){
-            $("#user_input").val("")
-            var userReply = "<div class='user_reply'><img src='" + userHead + "' class='avatar' width='69' height='69' /><div class='text'><p>" + userText + "</p><img src='http://minires.hdtmedia.com/uniqlo20160103/img/arrow2.png' class='arrow' /></div></div>";
-            $("#user_input").blur();
-            $(".chat_list").append(userReply);
-            scrollChat();
-
-            if(userText.indexOf("拜年") < 0 && userText.indexOf("红包") < 0 && wrongTimes < 3){
-                console.log(111)
-                wrongTimes++;
-                if(wrongTimes == 3){
-                    setTimeout(function(){
-                        $(".chat_list").append(ckReplyTwo);
-                        $("#user_input").hide();
-                        scrollChat();
-                    },500);
-                    setTimeout(function(){
-                        $(".chat_list").append(ckReplyThree);
-                        scrollChat();
-                        $(".red_bag_icon").click(function(){
-                            $(".pop_bag").show();
-                            $(".ck_red_bg").show().addClass("animated bounceIn")
-                        });
-                    },1000);
-                }else{
-                    setTimeout(function(){
-                        $(".chat_list").append(ckReply);
-                        scrollChat();
-                    },500);
-                }
-            }else{
-                $("#user_input").hide();
-                setTimeout(function(){
-                    $(".chat_list").append(ckReplyThree);
-                    scrollChat();
-                    $(".red_bag_icon").click(function(){
-                        $(".pop_bag").show();
-                        $(".ck_red_bg").show().addClass("animated bounceIn")
-                    });
-                },500);
-            }
-
-            setTimeout(function(){
-                $(".idol_replay").show();
-                scrollChat();
-            },500);
-        }
-
-
-    }
-
-    $(window).load(function(){
-        TrackWeb("homepage_loading");
-        $(".loading").fadeOut();
-        setTimeout(function(){
-            var kol = GetQueryString("source");
-            if(kol == "no_wechat"){
-                $(".share_layer").show();
-                shareclicked = true;
-            }else{
-                displayChat();
-                timer = setInterval("displayChat()",4000);
-            };
-        },1000);
-
-    })
-
-    $(function(){
-        //if(!isWeiXin()){
-            $(".sound_icon").removeClass("active");
-            musicAble = false;
-        //}
-
-        TrackWeb("homepage");
-        $(".sound_icon").click(function(){
-            if($(this).hasClass("active")){
-                $(this).removeClass("active");
-                musicAble = false;
-            }else{
-                $(this).addClass("active");
-                musicAble = true;
-            }
-        })
-
-        // $("#user_input").blur(function(){
-        //     finalInput();
-        // });
-
-        $("#user_input").change(function(){
-            finalInput();
-            TrackWeb("send02");
-            TrackWeb("talk_submit");
-        });
-        $("#user_input").keyup(function(event){
-            if(event.keyCode == 13){
-                finalInput();
-                TrackWeb("send02");
-                TrackWeb("talk_submit");
-            }
-        });
-
-        $("#fake_input").blur(function(){
-            fakeInput();
-        });
-
-        $("#fake_input").change(function(){
-            fakeInput();
-            TrackWeb("send01");
-            TrackWeb("talk_submit");
-        });
-        $("#fake_input").keyup(function(event){
-            if(event.keyCode == 13){
-                fakeInput();
-                TrackWeb("send01");
-                TrackWeb("talk_submit");
-            }
-        });
-
-        $("#fake_input").focus(function(){
-            clearInterval(timer);
-        })
-
-        //showInputPanel();
-        $("#video1").bind("ended", function() {
-            videoEnded();
-        })
-        $("#video1").bind("pause", function() {
-            videoEnded();
-        })
-
-        $("#video2").bind("ended", function() {
-            videoEnded();
-        })
-        $("#video2").bind("pause", function() {
-            videoEnded();
-        })
-
-        $(".video_btn1").click(function(){
-            animateAble = false;
-            clearInterval(timer);
-            $("#video1")[0].play();
-            $("#video1")[0].webkitRequestFullScreen();
-            TrackWeb("video01");
-        });
-
-        $(".video_btn2").click(function(){
-            animateAble = false;
-            clearInterval(timer);
-            $("#video2")[0].play();
-            $("#video2")[0].webkitRequestFullScreen();
-            TrackWeb("video02");
-        });
-
-        $(".thumb_img1").fancybox({
-            'padding':0,
-            'margin':0,
-            'speedIn':150,
-            'speedOut':150,
-            'autoScale' : false,
-            'autoDimensions' : false,
-            'width' : 640,
-            'hideOnContentClick' : true,
-            'showCloseButton' : true,
-            'transitionIn'  : 'elastic',
-            'transitionOut' : 'elastic',
-            'centerOnScroll' : true,
-            onClosed : function(){
-                setTimeout(function(){
-                    animateAble = true;
-                    displayChat();
-                    timer = setInterval("displayChat()",4000);
-                },500)
-
-                // setTimeout(function(){
-                //     scrollChat();
-                // },4000);
-            }
-        });
-        $(".thumb_img1").click(function(){
-            animateAble = false;
-            clearInterval(timer);
-        })
-
-        // $(".send_btn").click(function(){
-        //     $(".bottom_bar , .user_reply").show()
-        //     $(".bottom_bar2").remove();
-        //     $(".chat_list").removeClass("up");
-        //     setTimeout(function(){
-        //         $(".idol_replay").show();
-        //         scrollChat();
-        //     },2000);
-        // });
-
-
-
-        $(".close_btn").click(function(){
-            $(".pop_bag").fadeOut(300);
-        });
-
-        $(".open_btn").click(function(){
-            TrackWeb("packet");
-            if(isWeiXin()){
-                // $(".share_layer").fadeIn(300);
-                // shareclicked = true;
-                setTimeout(function(){
-                    window.location.href = "http://uniqlo.hdtmedia.com/20160103/ticket/index.html";
-                },100)
-            }else{
-                $(".weibo_layer").fadeIn(300);
-            }
-
-        });
-
-
-    });
-
-    $.getJSON("api/index.php?m=weibo&c=interface&a=getuser",null,function(json){
-        var openid = json.openid;
-        userName = json.nickname;
-        var head = json.head;
-        userHead = json.head;
-        if(openid == ""){
-            if(isWeiXin()){
-                location.href = "index.php";
-            }
-        }
-        $(".user_name").html(userName);
-        $(".avatar").attr("src",head);
-
-    });
-    </script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script type="text/javascript">
-
-        var shareclicked = false;
-
-        var pathUrl = 'http://uniqlo.hdtmedia.com/20160103/index.html';
-        var wxdata = {};
-        var wximg = 'http://minires.hdtmedia.com/uniqlo20160103/img/share.jpg';
-
-        wxdata = {
-            link : pathUrl,
-            img :wximg,
-            title : '[有明星@你] 陈坤倪妮和你拜早年',//分享给好友
-            desc : '教你穿新衣💓！还有红包啊🎁！',//分享给好友
-
-            timeLineTitle : '教你穿新衣💓！还有红包啊🎁！',//分享到朋友圈
-            timeLineImg : wximg
-        }
-
-
-        if(window.wx){
-            $.getJSON("getwx.php?siteurl="+encodeURIComponent(location.href.split("#")[0]),null,function(json){
-                wx.config({
-                    debug: false, //开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                    appId: json.appid, // 必填，公众号的唯一标识，别克订阅号
-                    timestamp: json.timestamp, // 必填，生成签名的时间戳
-                    nonceStr:  json.noncestr, // 必填，生成签名的随机串
-                    signature: json.signature, // 必填，签名，见附录1
-                    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-                });//http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
-
-                setWxData();
-            });
-        }
-
-
-        function setWxData() {
-            wx.ready(function(){
-
-                wx.onMenuShareTimeline({
-                    title: wxdata.timeLineTitle, // 分享标题
-                    link: wxdata.link, // 分享链接
-                    imgUrl: wxdata.timeLineImg, // 分享图标
-                    trigger: function (res) {
-                    },
-                    success: function() {
-                        shareSucess();
-                        TrackWeb("share02");
-                    },
-                    cancel: function() {
-
-                    }
-                });
-
-                wx.onMenuShareAppMessage({
-                    title: wxdata.title, // 分享标题
-                    desc: wxdata.desc, // 分享描述
-                    link: wxdata.link, // 分享链接
-                    imgUrl: wxdata.img, // 分享图标
-                    type: '', // 分享类型,music、video或link，不填默认为link
-                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                    trigger: function (res) {
-                    },
-                    success: function() {
-                        shareSucess();
-                        TrackWeb("share01");
-                    },
-                    cancel: function() {
-
-                    }
-                });
-
-                wx.onMenuShareQQ({
-                    title: wxdata.title, // 分享标题
-                    desc: wxdata.desc, // 分享描述
-                    link: wxdata.link, // 分享链接
-                    imgUrl: wxdata.img, // 分享图标
-                    trigger: function (res) {
-                    },
-                    success: function() {
-                        shareSucess();
-                    },
-                    cancel: function() {
-
-                    }
-                });
-
-                wx.onMenuShareWeibo({
-                    title: wxdata.title, // 分享标题
-                    desc: wxdata.desc, // 分享描述
-                    link: wxdata.link, // 分享链接
-                    imgUrl: wxdata.img, // 分享图标
-                    trigger: function (res) {
-                    },
-                    success: function() {
-                        shareSucess();
-                    },
-                    cancel: function() {
-
-                    }
-                });
-
-                wx.onMenuShareQZone({
-                    title: wxdata.title, // 分享标题
-                    desc: wxdata.desc, // 分享描述
-                    link: wxdata.link, // 分享链接
-                    imgUrl: wxdata.img, // 分享图标
-                    trigger: function (res) {
-                    },
-                    success: function() {
-                        shareSucess();
-                    },
-                    cancel: function() {
-
-                    }
-                });
-            });
-        };
-
-        function shareSucess(){
-            if(shareclicked){
-                location.href = "http://uniqlo.hdtmedia.com/20160103/ticket/index.html";
-            }
-        }
-
-    </script>
+    <div class="app-footer"></div>
+  </div>
 </body>
 </html>

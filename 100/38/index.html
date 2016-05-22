@@ -1,53 +1,159 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>居中、边缘定位二三事</title>
-<style>
-body { margin: 0; font: 14px/1.4 "Microsoft YaHei"; background-color: #EDEFF0; }
-.constr { width: 1200px; max-width: 80%; margin-left: auto; margin-right: auto; }
-.course-content { float: right; position: relative; width: 920px; min-height: 1200px; background: #fff; }
-.course-list-x { padding: 20px 10px; overflow: hidden; }
-.course-list { float: left; width: 280px; height: 240px; margin: 5px 10px 15px; border-radius: 0 0 1px 1px; background-color: #F7FAF9; background-color: rgba(255,255,255,1); box-shadow: 0 1px 2px #c5c5c5; text-decoration: none; }
-
-.goto_top_diaocha, .goto_top_app, .goto_top_feed { display: block; width: 48px; height: 48px; margin-top: 10px; background: url(http://img.mukewang.com/5453076e0001869c01920098.png) no-repeat; }
-.goto_top_diaocha { background-position: -48px 0; }
-.goto_top_diaocha:hover { background-position: -48px -50px; }
-.goto_top_app { background-position: -96px 0; }
-.goto_top_app:hover { background-position: -96px -50px; }
-.goto_top_feed { background-position: -144px 0; }
-.goto_top_feed:hover { background-position: -144px -50px; }
-
-.course-loading-x { height: 0; margin-top: 20px; text-align: center; letter-spacing: -.25em; overflow: hidden; }
-.course-loading { position: absolute; margin-left: -26px; }
-
-.course-fixed-x { height: 0; text-align: right; overflow: hidden; }
-.course-fixed { display: inline; position: fixed; margin-left: 20px; bottom: 100px; }
-</style>
+    <meta charset="UTF-8">
+    <title>Google Photos</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="constr">
-    <div class="course-content">
-        <div class="course-list-x">
-          <div class="course-list"></div>
-            <div class="course-list"></div>
-            <div class="course-list"></div>
-            <div class="course-list"></div>
-            <div class="course-list"></div>
-            <div class="course-list"></div>
-        </div>
-        <div class="course-loading-x">
-          &nbsp;<img src="http://img.mukewang.com/5453077400015bba00010001.gif" class="course-loading" alt="加载中...">
-        </div>
-        <div class="course-fixed-x">
-          &nbsp;<div class="course-fixed">
-                <a href="http://www.imooc.com/activity/diaocha" class="goto_top_diaocha"></a>
-                <a href="http://www.imooc.com/mobile/app" class="goto_top_app"></a>
-                <a href="http://www.imooc.com/user/feedback" class="goto_top_feed"></a>
-            </div>
-        </div>
-    </div>
-</div>
+<!--     <div class="fav-list">
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+      <div class="img-item"><i></i><img src="" alt=""></div>
+    </div> -->
+
+  <section>
+    <!-- ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="photo-103450229.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="photo-108273877.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="photo-115203323.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="photo-23583825.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-123942383.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-124559545.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-132046989.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-132118343.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-132311221.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-132586903.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-135203031.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-135626379.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-136947953.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-138378295.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-138436811.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-142950305.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-143046061.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-143181649.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-144530143.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-144730939.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-145414771.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-146038669.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-146231033.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-146914861.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-147877407.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-147969173.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-148015373.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-148704233.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-148928293.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-148950715.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-21951271.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-21964829.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-22618399.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-31201539.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-34598868.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-47252094.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-51980510.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-55601508.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-65681789.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-70461471.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-71801901.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-71913567.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-72223295.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-72620185.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-74402039.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-75097491.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-75186237.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-79250373.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-79692589.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-7979718.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-7980252.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-81390687.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-81988949.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs --><div ng-repeat="img in imgs" class="ng-scope">
+      <img src="stock-photo-83149705.jpg" alt="">
+    </div><!-- end ngRepeat: img in imgs -->
+  </section>
+
 </body>
+
 </html>
