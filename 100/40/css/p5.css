@@ -1,0 +1,202 @@
+.p5 {
+    background: url(../img/p5_bg.png) no-repeat top center;
+    width: 540px;
+    height: 504px;
+    -webkit-background-size: 540px 216px;
+    background-size: 540px 216px;
+    margin: -252px 0 0 -270px
+}
+
+.p5__t_1 {
+    background-image: url(../img/p5.png);
+    background-position: 0 -258px;
+    width: 134px;
+    height: 25px;
+    top: 50px;
+    left: 50%;
+    margin-left: -67px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p5__t_2 {
+    background-image: url(../img/p5.png);
+    background-position: 0 -205px;
+    width: 186px;
+    height: 27px;
+    top: 85px;
+    left: 50%;
+    margin-left: -93px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p5__t_3 {
+    background-image: url(../img/p5.png);
+    background-position: 0 -232px;
+    width: 157px;
+    height: 26px;
+    top: 125px;
+    left: 50%;
+    margin-left: -78px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p5__t_4 {
+    background-image: url(../img/p5.png);
+    background-position: 0 0;
+    width: 283px;
+    height: 104px;
+    top: 206px;
+    left: 50%;
+    margin-left: -141px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p5__lantern {
+    background-image: url(../img/p5.png);
+    background-position: 0 -104px;
+    width: 71px;
+    height: 101px;
+    top: 209px;
+    left: 195px;
+    opacity: 0;
+    -webkit-transition: opacity 1.5s linear;
+    transition: opacity 1.5s linear
+}
+
+.p5__act-wrap {
+    width: 540px;
+    height: 140px;
+    top: 320px;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear
+}
+
+.p5__p {
+    margin: 0;
+    width: 540px;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #E75859
+}
+
+.p5__print-wrap {
+    background-image: url(../img/p5.png);
+    background-position: -71px -104px;
+    width: 92px;
+    height: 92px;
+    top: 55px;
+    left: 50%;
+    margin-left: -46px
+}
+
+.p5__print {
+    background-image: url(../img/p5.png);
+    background-position: -163px -104px;
+    width: 51px;
+    height: 78px;
+    top: 50%;
+    left: 50%;
+    margin: -39px 0 0 -25px;
+    opacity: .1
+}
+
+.p5__scanner {
+    background-image: url(../img/p5.png);
+    background-position: -163px -182px;
+    width: 89px;
+    height: 11px;
+    top: -10px;
+    left: 2px
+}
+
+.p5__extra {
+    width: 100%;
+    left: 0;
+    background-color: #E75859
+}
+
+@media all and (max-height:416px) {
+    .p5__t_1 {
+        top: 60px
+    }
+
+    .p5__t_2 {
+        top: 95px
+    }
+
+    .p5__t_3 {
+        top: 135px
+    }
+
+    .p5__act-wrap .p5__print-wrap {
+        top: 40px
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-resolution:240dpi) {
+    .p5__t_1 {
+        background-image: url(../img/p5@2x.png);
+        background-position: 0 -258px;
+        background-size: 283px
+    }
+
+    .p5__t_2 {
+        background-image: url(../img/p5@2x.png);
+        background-position: 0 -205px;
+        background-size: 283px
+    }
+
+    .p5__t_3 {
+        background-image: url(../img/p5@2x.png);
+        background-position: 0 -232px;
+        background-size: 283px
+    }
+
+    .p5__t_4 {
+        background-image: url(../img/p5@2x.png);
+        background-position: 0 0;
+        background-size: 283px
+    }
+
+    .p5__lantern {
+        background-image: url(../img/p5@2x.png);
+        background-position: 0 -104px;
+        background-size: 283px
+    }
+
+    .p5__print-wrap {
+        background-image: url(../img/p5@2x.png);
+        background-position: -71px -104px;
+        background-size: 283px
+    }
+
+    .p5__print {
+        background-image: url(../img/p5@2x.png);
+        background-position: -163px -104px;
+        background-size: 283px
+    }
+
+    .p5__scanner {
+        background-image: url(../img/p5@2x.png);
+        background-position: -163px -182px;
+        background-size: 283px
+    }
+}
+
+.TmTStamp {
+    content: "20141124111116"
+}
+
+

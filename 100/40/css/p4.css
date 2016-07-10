@@ -1,0 +1,126 @@
+.p4 {
+    width: 320px;
+    height: 504px;
+    margin: -252px 0 0 -160px
+}
+
+.p4__t_1 {
+    background-image: url(../img/p4.png);
+    background-position: 0 -201px;
+    width: 238px;
+    height: 22px;
+    top: 55px;
+    left: 50%;
+    margin-left: -119px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p4__t_2 {
+    background-image: url(../img/p4.png);
+    background-position: -168px -74px;
+    width: 75px;
+    height: 22px;
+    top: 85px;
+    left: 50%;
+    margin-left: -38px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p4__t_3 {
+    background-image: url(../img/p4.png);
+    background-position: -168px -51px;
+    width: 173px;
+    height: 23px;
+    top: 117px;
+    left: 50%;
+    margin-left: -86px;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0)
+}
+
+.p4__hourglass {
+    background-image: url(../img/p4.png);
+    background-position: 0 0;
+    width: 168px;
+    height: 201px;
+    top: 165px;
+    left: 50%;
+    margin-left: -84px;
+    opacity: 0;
+    -webkit-transition: opacity 2s linear;
+    transition: opacity 2s linear
+}
+
+.p4__t_4 {
+    background-image: url(../img/p4.png);
+    background-position: -168px 0;
+    width: 228px;
+    height: 51px;
+    top: 395px;
+    left: 50%;
+    margin-left: -114px;
+    opacity: 0;
+    -webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear
+}
+
+@media all and (max-height:416px) {
+    .p4__t_1 {
+        top: 67px
+    }
+
+    .p4__t_2 {
+        top: 95px
+    }
+
+    .p4__t_3 {
+        top: 120px
+    }
+
+    .p4__t_4 {
+        top: 385px
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min--moz-device-pixel-ratio:1.5), only screen and (min-resolution:240dpi) {
+    .p4__t_1 {
+        background-image: url(../img/p4@2x.png);
+        background-position: 0 -201px;
+        background-size: 396px
+    }
+
+    .p4__t_2 {
+        background-image: url(../img/p4@2x.png);
+        background-position: -168px -73.5px;
+        background-size: 396px
+    }
+
+    .p4__t_3 {
+        background-image: url(../img/p4@2x.png);
+        background-position: -168px -51px;
+        background-size: 396px
+    }
+
+    .p4__hourglass {
+        background-image: url(../img/p4@2x.png);
+        background-position: 0 0;
+        background-size: 396px
+    }
+
+    .p4__t_4 {
+        background-image: url(../img/p4@2x.png);
+        background-position: -168px 0;
+        background-size: 396px
+    }
+}
+
+.TmTStamp {
+    content: "20141124111116"
+}
+
+
